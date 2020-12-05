@@ -1,0 +1,10 @@
+.zoltar-image {
+    width: 300px;
+    position: relative;
+        .zoltar-mouth {
+            position: absolute;
+            z-index: 10;
+            top: 0px;
+            left: 0;
+        }
+}
