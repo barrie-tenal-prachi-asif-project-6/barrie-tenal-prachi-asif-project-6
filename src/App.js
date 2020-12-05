@@ -8,6 +8,9 @@ class App extends Component {
         <h1>Barrie Test</h1>
         <h2>More testing</h2>
         <p>Asif is testing</p>
+        <section className="testSection">
+          <p>Added a section</p>
+        </section>
       </div>
     );
   }
