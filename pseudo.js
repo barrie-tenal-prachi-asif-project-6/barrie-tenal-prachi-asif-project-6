@@ -36,3 +36,19 @@
     // userSelection (dropdown): userWishCategory
     // userName
     // apiAdviceResponse
+
+// TECH STACK
+    // vsCode
+        // Live-Share by Microsoft
+    
+    // CSS
+        // Flexbox
+        // Grid
+    
+    // REACT
+        // MODULES
+            // Axios
+            // node-sass
+            // Firebase (OPTIONAL)
+            // react-router-dom 
+    
