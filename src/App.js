@@ -10,6 +10,10 @@ class App extends Component {
         <section className="prachiTestObj">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, architecto.</p>
         </section>
+        <p>Asif is testing</p>
+        <section className="testSection">
+          <p>Added a section</p>
+        </section>
       </div>
     );
   }
