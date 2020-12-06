@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+<<<<<<< HEAD
 import './index.scss';
+=======
+import './styles/index.scss';
+>>>>>>> dd53220643827a4481e82b09ef57b7edae8b58f9
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
