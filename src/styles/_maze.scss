@@ -1,3 +1,15 @@
+// COLOUR VARIABLES ----------
+$primary-colour:#e2804d;
+$secondary-colour:#cf511b;
+$tertiary-colour: #df96cc;
+$font-primary: #000000;
+$font-secondary: #FFFFFF;
+
+// FONT VARIABLES ----------
+$heading-font: 'Poiret One', cursive;
+$body-font: 'Hind Siliguri', sans-serif;
+
+
 .maze {
     margin: 30px;
     cursor: pointer;
@@ -23,5 +35,6 @@
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background-color: orange;
+    border: 1px solid darken(#e2804d, 30%);
+    background-color: #e2804d;
 }
