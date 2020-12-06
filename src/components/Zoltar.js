@@ -1,3 +1,4 @@
+// Barrie
 const Zoltar = () => {
     return (
         <div className="zoltar-image-container">
