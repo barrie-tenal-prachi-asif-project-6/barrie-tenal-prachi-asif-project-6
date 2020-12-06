@@ -1,0 +1,40 @@
+// COLOUR VARIABLES ----------
+$primary-colour:#e2804d;
+$secondary-colour:#cf511b;
+$tertiary-colour: #df96cc;
+$font-primary: #000000;
+$font-secondary: #FFFFFF;
+
+// FONT VARIABLES ----------
+$heading-font: 'Poiret One', cursive;
+$body-font: 'Hind Siliguri', sans-serif;
+
+
+.maze {
+    margin: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    width: 560px;
+    height: 560px;
+        div {
+            width: 20px;
+            height: 20px;
+        }
+}
+
+.path {
+    background-color: #df96cc;
+}
+
+.wall {
+    background-color: black;
+}
+
+.coin {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid darken(#e2804d, 30%);
+    background-color: #e2804d;
+}

@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import Zoltar from './components/Zoltar.js';
+import Maze from './components/Maze.js';
 import './styles/App.scss';
 import Axios from 'axios';
 
@@ -16,6 +18,11 @@ class App extends Component {
             <h2>More testing</h2>
           </header>
         </div>
+        <article className="first-article">
+          <p>hello this is an article</p>
+        </article>
+        <Zoltar />
+        <Maze />
       </div>
     )
   }
