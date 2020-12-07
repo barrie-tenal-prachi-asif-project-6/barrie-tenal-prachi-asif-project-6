@@ -3,41 +3,28 @@
 import { Component } from 'react';
 
 // PROPS:
-// randomAdive = { this.state.randomAdviceSlip }
-// specificadvice = { this.state.specificAdviceSlip }
-// specificCategory = { this.state.selectedUserCategory }
-// changeCategoryFunction = { this.handleSelect }
-// submitCategoryFunction = { this.handleSubmit }
+// specificCategoryFunction = {this.getSpecificAdvice }
+// selectedCategoryFunction = {this.setSelectedUserCategory}
 
 class Instructions extends Component {
 
-    // constructor(){
-    //     super();
-    //     this.state={
-    //         selectedCategory: ""
-    //     }
-    // }
-
-    // handleSelect = (e) => {
-    //     console.log(e.target.value);
-    //     this.setState({
-    //         selectedCategory: e.target.value
-    //     })
-    // }
-    handleSelect = (e) => {
-        console.log(e.target.value);
-        this.props.saveCategoryFunction(e.target.value)
+    constructor(){
+        super();
+        this.state={
+            selectedCategory: ""
+        }
     }
 
-    handleSubmit = (e) =>{
+    handleSelect = (e) => {
+        console.log(e.target.value);
+        this.setState({
+            selectedCategory: e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
         e.preventDefault();
-        if (this.state.selectedCategory !== 'other'){
-            this.props.specificCategoryFunction(this.state.selectedCategory)
-        }
-        else{
-            console.log('need to call the random advice');
-        }
-        
+        this.props.specificCategoryFunction(this.state.selectedCategory)
     }
 
 
@@ -49,8 +36,7 @@ class Instructions extends Component {
                     <select
                     name="category"
                     id="category"
-                    onChange={this.handleSelect}
-                    value={this.state.selectedCategory}>
+                    onChange={this.handleSelect}>
                         <option value="placeholder">Choose one:</option>
                         <option value="life">life</option>
                         <option value="people">People</option>
@@ -64,3 +50,4 @@ class Instructions extends Component {
     }
 }
 export default Instructions;    
+
