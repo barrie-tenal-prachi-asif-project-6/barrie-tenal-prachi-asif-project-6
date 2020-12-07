@@ -2,72 +2,86 @@ import { Component } from 'react';
 import Header from './components/Header.js'
 import Zoltar from './components/Zoltar.js';
 import Maze from './components/Maze.js';
-import Instructions from './components/Instructions.js'
+import Results from './components/Results.js';
+import Instructions from './components/Instructions.js';
 import axios from 'axios';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './styles/App.scss';
+
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      randomAdviceSlip: [],
-      specificAdviceSlip: []
+      adviceSlip: [],
     };
   }
 
-  // Function to call API which will give us specific advice categoring to the selected dropdown option..
-
+  // Function to call API which will give us specific advice when user selects a specific category besides 'other'
   getSpecificAdvice = (recivedSelectedCategory) => {
     axios({
       url: `https://api.adviceslip.com/advice/search/${recivedSelectedCategory}`,
       method: "GET",
       responseType: "JSON",
     }).then((res) => {
-      console.log(res)
       this.setState({
-        specificAdviceSlip: res.data.slips
-      })
-      console.log(this.state.specificAdviceSlip)
-    })
-  }
+        adviceSlip: res.data.slips,
+      });
+    });
+  };
 
-  // Calling random advice API on mount to get a random advice......
-  componentDidMount() {
+  // Function to call API which will give us random advice when user selects category of 'other'
+  getRandomAdvice = () => {
     axios({
-      url: 'https://api.adviceslip.com/advice',
-      method: 'GET',
-      responseType: 'json'
-    })
-      .then((res) => {
-        console.log(res.data.slip);
-        const newAdvice = []
-        newAdvice.push(res.data.slip)
-        this.setState({
-          randomAdviceSlip: newAdvice
-        })
-        console.log(this.state.randomAdviceSlip);
-      })
-  }
+      url: `https://api.adviceslip.com/advice?timestamp=${new Date().getTime()}`,
+      method: "GET",
+      responseType: "json",
+    }).then((res) => {
+      const newAdvice = [];
+      newAdvice.push(res.data.slip);
+
+      this.setState({
+        adviceSlip: newAdvice,
+      });
+    });
+  };
 
   render() {
     return (
-      <>
-        <Header />
-        <Zoltar />
-        {/* Passing the function to call the specific selected category to the child  */}
-        <Instructions
-        specificCategoryFunction = {this.getSpecificAdvice}
-        // selectedCategoryFunction = {this.setSelectedUserCategory}
-        />
-        <Maze />
+      <Router>
+        <>
+          <Header />
 
-        {/* when rendering the last page for advice show: 
-        if selectedCategory===other ?
-        display component with the randomAdvice[] as a prop
-        : display wish component with specificAdvice as a prop */}
+          <Route exact path="/" component={Zoltar} />
+          {/* Passing the function to call the specific selected category to the child  */}
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return (
+                <Instructions
+                  getSpecificAdvice={this.getSpecificAdvice}
+                  getRandomAdvice={this.getRandomAdvice}
+                />
+              );
+            }}
+            // selectedCategoryFunction = {this.setSelectedUserCategory}
+          />
+          <Route path="/maze" component={Maze} />
+          <Route
+            path="/results"
+            render={() => {
+              return <Results adviceSlip={this.state.adviceSlip} />;
+            }}
+          />
 
-      </>
+          {/* when rendering the last page for advice show: 
+          if selectedCategory===other ?
+          display component with the randomAdvice[] as a prop
+          : display wish component with specificAdvice as a prop */}
+        </>
+      </Router>
     );
   }
 }

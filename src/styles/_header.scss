@@ -6,27 +6,3 @@ header{
 h1{
     color: whitesmoke;
 }
-
-
-
-.Palette {
-    width: 100%;
-    height: 500px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    :nth-child(1) {
-        background-color: $primary-colour;
-    }
-    :nth-child(2) {
-        background-color: $secondary-colour;
-    }
-    :nth-child(3) {
-        background-color: $tertiary-colour;
-    }
-    :nth-child(4) {
-        background-color: #202020;
-    }
-    :nth-child(5) {
-        background-color: #f2e9dd;
-    }
-}
