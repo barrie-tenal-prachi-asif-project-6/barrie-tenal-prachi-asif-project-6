@@ -1,10 +1,10 @@
 // Prachi
-
+import { Link } from 'react-router-dom';
 import { Component } from 'react';
 
 // PROPS:
-// specificCategoryFunction = {this.getSpecificAdvice }
-// selectedCategoryFunction = {this.setSelectedUserCategory}
+// getSpecificAdvice = { this.getSpecificAdvice }
+// getRandomAdvice = { this.getRandomAdvice }
 
 class Instructions extends Component {
 
@@ -24,7 +24,11 @@ class Instructions extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.specificCategoryFunction(this.state.selectedCategory)
+        if (this.state.selectedCategory === 'other'){
+            this.props.getRandomAdvice();
+        }else{
+            this.props.getSpecificAdvice(this.state.selectedCategory);
+        }
     }
 
 
@@ -45,6 +49,10 @@ class Instructions extends Component {
                     </select>
                     <button>Wish!</button>
                 </form>
+                <Link to="/maze">
+                    <button>COIN</button>
+                </Link>
+                
             </main>
         )
     }
