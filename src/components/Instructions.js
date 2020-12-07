@@ -11,18 +11,22 @@ import { Component } from 'react';
 
 class Instructions extends Component {
 
-    constructor(){
-        super();
-        this.state={
-            selectedCategory: ""
-        }
-    }
+    // constructor(){
+    //     super();
+    //     this.state={
+    //         selectedCategory: ""
+    //     }
+    // }
 
+    // handleSelect = (e) => {
+    //     console.log(e.target.value);
+    //     this.setState({
+    //         selectedCategory: e.target.value
+    //     })
+    // }
     handleSelect = (e) => {
         console.log(e.target.value);
-        this.setState({
-            selectedCategory: e.target.value
-        })
+        this.props.saveCategoryFunction(e.target.value)
     }
 
     handleSubmit = (e) =>{

@@ -12,7 +12,8 @@ class App extends Component {
     super();
     this.state = {
       randomAdviceSlip: [],
-      specificAdviceSlip: [],  
+      specificAdviceSlip: [], 
+      selectedCategory: '' 
     };
   }
 
@@ -40,7 +41,7 @@ class App extends Component {
   // IMPORTANT: need to check with the instructor if user selection can be updated in the child component , setting in the parent and changing in the call. 
 
   // we need to add "random advice" function if the "selectedCategory" is "other" when calling the other child object Wish.
-  
+
 
   getSpecificAdvice = (selectedUserCategory) => {
     console.log(`https://api.adviceslip.com/advice/${selectedUserCategory}`)
@@ -57,6 +58,12 @@ class App extends Component {
     })
   }
 
+  // calling a function which will setState in the parent app.js so that it can be used later when the user selects the dropdown option
+  saveSelectedCategory = (selectedDropdownCategory) =>{
+    this.setState({
+      selectedCategory: selectedDropdownCategory
+    })
+  }
 
   render() {
     return (
@@ -66,8 +73,14 @@ class App extends Component {
         {/* Passing the function to call the specific selected category to the child  */}
         <Instructions
         specificCategoryFunction = {this.getSpecificAdvice}
+        saveCategoryFunction = {this.saveSelectedCategory}
         />
         <Maze />
+
+        {/* when rendering the last page for advice show: 
+        if selectedCategory===other ?
+        display component with the randomAdvice[] as a prop
+        : display wish component with specificAdvice as a prop */}
       </>
     );
   }
