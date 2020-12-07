@@ -44,12 +44,8 @@ class Maze extends Component {
             1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1
         ]
 
-        // this.state.mazeArray.map((receivedPath)=>{
-        // <div>{receivedPath}</div>
-        // })
-
         // DISPLAYING MAZE & COIN ----------
-        // store the div with a class of grid into a variable
+        // store the div with a class of grid into a variable & clear any content located within the div
         const mazeBox = document.querySelector('.maze');
         while (mazeBox.firstChild) {
             mazeBox.removeChild(mazeBox.firstChild);
@@ -75,33 +71,62 @@ class Maze extends Component {
 
         // display coin in the maze
         let coinCurrentIndex = 1
-        mazeSquares[coinCurrentIndex].classList.add('coin')
+        mazeSquares[coinCurrentIndex].classList.add('coin');
 
 
 
         // moving coin
-        // moveCoin = (event) => {
-        //     const movingCoin = document.querySelector('.coin')
+        const moveCoin = (event) => {
             
-        //     switch (event.keyCode) {
-        //         case 39: 
-        //         if (
-        //             coinCurrentIndex +1
-        //         )
+            // remove the coin class from it's starting index
+            mazeSquares[coinCurrentIndex].classList.remove('coin');
+            
+            switch (event.keyCode) {
+                // if user hits the left arrow key, check to see if they are able to continue moving left (ie: ensure the remainder when thee coin's current index divided by 28 is not 0), then subtract the coin's current index by one
+                case 37:
+                    if (coinCurrentIndex % 28 !== 0) coinCurrentIndex -=1
+                    break
+                
+                //  if user hits right arrow key
+                case 39:
+                    if (coinCurrentIndex % 28 < 28 -1) coinCurrentIndex += 1
+                    break
 
-                    
-        //             // movingCoin.style.top = coinCurrentIndex.style.top  
-        //     }
-        // }
+                //  if user hits up arrow key
+                case 38:
+                    if (coinCurrentIndex - 28 >= 0) coinCurrentIndex -=28
+                    break
+                
+                //  if user hits down arrow key
+                case 40:
+                    if (coinCurrentIndex + 28 < 28 * 28) coinCurrentIndex += 28
+                    break
 
+            }
 
-
+            // add the coin class to it's new index
+            mazeSquares[coinCurrentIndex].classList.add('coin');
+        }
 
         // update the maze state with the new mazeSquares array
         this.setState = {
             maze: mazeSquares
         }
     }
+
+
+
+
+
+
+    componentDidMount() {
+
+        document.addEventListener('keydown', moveCoin);
+    }
+
+
+
+
 
 
     render() { 
