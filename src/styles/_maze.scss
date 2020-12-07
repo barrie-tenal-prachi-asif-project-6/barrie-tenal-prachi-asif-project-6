@@ -12,11 +12,15 @@
 }
 
 .path {
-    background-color: #df96cc;
+    background-color: transparent;
 }
 
 .wall {
     background-color: black;
+    border-radius: 5px;
+    background-image: url("https://i.ibb.co/jrZN9TN/brick-maze-pattern.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .coin {
