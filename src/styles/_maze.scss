@@ -18,15 +18,26 @@
 .wall {
     background-color: black;
     border-radius: 5px;
-    background-image: url("https://i.ibb.co/jrZN9TN/brick-maze-pattern.jpg");
+    background-image: url("https://i.ibb.co/3M2Q7Gx/brick-maze-pattern.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    box-shadow: 0 0 1px $font-primary;
 }
 
 .coin {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    border: 1px solid darken(#e2804d, 30%);
-    background-color: #e2804d;
+    background-image: url("https://i.ibb.co/ZTDzxH0/pngtree-cartoon-coin-image-1288778.jpg");
+    background-size: cover;
+    animation: coinSpin 2s linear infinite;
+}
+
+@keyframes coinSpin {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
 }
