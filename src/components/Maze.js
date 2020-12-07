@@ -73,6 +73,12 @@ class Maze extends Component {
         let coinCurrentIndex = 1
         mazeSquares[coinCurrentIndex].classList.add('coin');
 
+        // update the maze state with the new mazeSquares array
+        this.setState({
+            maze: mazeSquares
+        })
+
+
 
 
 
@@ -84,21 +90,21 @@ class Maze extends Component {
         const moveCoin = (event) => {
             
             // remove the coin class from the coin's starting index
-            mazeSquares[coinCurrentIndex].classList.remove('coin');
+            this.state.maze[coinCurrentIndex].classList.remove('coin');
             
             switch (event.keyCode) {
                 // if user hits the left arrow key:
                     // (a) check to see if the index number that is one below the coin's current index number (ie: check the value of the index number to the 'left' of the coin's current index number) is actually a path (ie: ensure it is not a wall)
                     // (b) if above condition is satisfied, subtract one from the coin's current index number
                 case 37:
-                    if (mazeSquares[coinCurrentIndex -1].classList.contains('path')) coinCurrentIndex -=1
+                    if (this.state.maze[coinCurrentIndex -1].classList.contains('path')) coinCurrentIndex -=1
                     break
 
                 //  if user hits right arrow key:
                     // (a) check to see if the index number that is one above the coin's current index number (ie: check the value of the index number to the 'right' of the coin's current index number) is actually a path
                     // (b) if above condition is satisfied, add one to the coin's current index number
                 case 39:
-                    if (mazeSquares[coinCurrentIndex + 1].classList.contains('path')) coinCurrentIndex += 1
+                    if (this.state.maze[coinCurrentIndex + 1].classList.contains('path')) coinCurrentIndex += 1
                     break
 
                 //  if user hits up arrow key:
@@ -106,7 +112,7 @@ class Maze extends Component {
                     // (b) check to see if the index number that is 28 below the coin's current index number (ie: check the value of the index number that is directly 'on top' of the coin's current index number) is actually a path
                     // (c) if both above conditions are satisfied, subtract 28 from the coin's current index number (ie: the width/height of the maze)
                 case 38:
-                    if (coinCurrentIndex - 28 >= 0 && mazeSquares[coinCurrentIndex - 28].classList.contains('path')) coinCurrentIndex -=28
+                    if (coinCurrentIndex - 28 >= 0 && this.state.maze[coinCurrentIndex - 28].classList.contains('path')) coinCurrentIndex -=28
                     break
 
                 //  if user hits down arrow key:
@@ -120,14 +126,11 @@ class Maze extends Component {
             }
 
             // add the coin class to the coin's new index
-            mazeSquares[coinCurrentIndex].classList.add('coin');
+            this.state.maze[coinCurrentIndex].classList.add('coin');
         }
 
 
-        // update the maze state with the new mazeSquares array
-        this.setState = {
-            maze: mazeSquares
-        }
+
 
 
         // listen for the user to click one of the 4 arrow keys within the function that moves the coin 
