@@ -55,7 +55,7 @@
 
 
 
-// Advice slip API keywords
+// API KEYWORDS ----------
 
 // MULTIPLE results:
     // life (11)
@@ -69,14 +69,24 @@
     // art (4)
     // food (3)
     // feeling (2) - 'emotions'
-
+    // You - 92
+    // Life - 11
+    // People - 11
+    // Things - 10
+    // Good - 9
+    // Self - 8
+    // Something - 7
+    // Work - 7
+    // Advice - 6
+    // Love - 5
+    // Learn - 4
+    // Bad - 4
 
 // LIMITED results:
     // money (1)
     // exercise (1)
     // fun (2) - one might be deemed 'inappropriate', not sure the client is aware of it lol
     // dog (1), horse (1), probably other random animals... but not 'animal' lol
-
 
 // NO results (what even is this api?!):
     // health
