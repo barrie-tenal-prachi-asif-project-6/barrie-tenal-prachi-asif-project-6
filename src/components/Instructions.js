@@ -56,14 +56,14 @@ class Instructions extends Component {
             <div className="instructionsFormContainer">
                 <section className="zoltarInstructions">
                     <p>
-                        Welcome to Zoltar Speaks! Please provide your name, wish category and your wish description below. Then click the coin to travel through the maze and get your wish granted by Zoltar!!
+                        Zoltar speaks! Tell him your name, choose a category, and give a brief description of what you wish to learn. If you can navigate your coin through Zoltar's maze, he will grant you the advice you seek!
                     </p>
                 </section>
 
                 <form onSubmit={this.handleSubmit}>
                     <div className="userNameInput">
                         <label htmlFor="userName">Type your name</label>
-                        <input type="text" id="userName" placeholder="Type Your Name" required onChange={this.enterUserName} />
+                        <input type="text" id="userName" placeholder="Sam Smith" required onChange={this.enterUserName} />
                     </div>
 
                     <div className="userSelectionOptions" onChange={this.handleSelect}>
@@ -92,12 +92,12 @@ class Instructions extends Component {
                         <input type="radio" name="userCategory" id="work" />
 
                         <label  htmlFor="other"><h2>Other</h2></label>
-                        <input type="radio" name="userCategory" id="other" />
+                        <input type="radio" name="userCategory" id="other" checked />
                     </div>
                     
                     <div className="userWishInput" onChange={this.enterUserWish}>
                         <label htmlFor="userWish">Write your wish!</label>
-                        <textarea id="userWish" name="userWish" rows="4" cols="40" placeholder = "write your wish here..." required/>
+                        <textarea id="userWish" name="userWish" rows="4" cols="40" placeholder = "I wish...." required/>
                     </div>
 
                     <button>Submit the Wish!</button>
