@@ -1,8 +1,10 @@
-header{
-    background-color: green;
+header {
+    background-color: $fontPrimary;
+    color: $fontSecondary;
     font-size: 5rem;
+    text-align: center;
+    h1 {
+        text-transform: uppercase;
+    }
 }
-
-h1{
-    color: whitesmoke;
-}
+ 

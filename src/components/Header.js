@@ -5,7 +5,7 @@ export default class Header extends Component {
     render() {
         return (
             <header>
-                ZOLTAR SPEAKS
+                <h1>zoltar speaks</h1>
             </header>
         );
     }
