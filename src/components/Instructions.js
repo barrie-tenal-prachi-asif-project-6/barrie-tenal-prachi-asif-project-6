@@ -16,12 +16,19 @@ class Instructions extends Component {
             userWish: ""
         }
     }
-
+    
     // Function for taking the userName
     enterUserName = (e) =>{
         e.preventDefault();
         this.setState({
             userName: e.target.value
+        })
+    }
+
+    enterUserWish = (e) =>{
+        console.log(e.target.value);
+        this.setState({
+            userWish: e.target.value
         })
     }
 
@@ -55,50 +62,58 @@ class Instructions extends Component {
 
                 <form onSubmit={this.handleSubmit}>
                     <div className="userNameInput">
-                        <input type="text" id="userName" placeholder="Type Your Name" onChange={this.enterUserName} />
                         <label htmlFor="userName">Type your name</label>
+                        <input type="text" id="userName" placeholder="Type Your Name" required onChange={this.enterUserName} />
                     </div>
 
                     <div className="userSelectionOptions" onChange={this.handleSelect}>
-                        <input type="radio" name="people" id="people" />
                         <label htmlFor="people"><h2>Social</h2></label>
+                        <input type="radio" name="userCategory" id="people" />
 
-                        <input type="radio" name="happiness" id="happiness" />
                         <label htmlFor="happiness"><h2>Happiness</h2></label>
+                        <input type="radio" name="userCategory" id="happiness" />
 
-                        <input type="radio" name="you" id="you" />
                         <label htmlFor="you"><h2>Self Improvement</h2></label>
+                        <input type="radio" name="userCategory" id="you" />
 
-                        <input type="radio" name="good" id="good" />
                         <label htmlFor="good"><h2>Feeling Good</h2></label>
+                        <input type="radio" name="userCategory" id="good" />
 
-                        <input type="radio" name="life" id="life" />
                         <label htmlFor="life"><h2>Life</h2></label>
+                        <input type="radio" name="userCategory" id="life" />
 
-                        <input type="radio" name="things" id="things" />
                         <label  htmlFor="things"><h2>Things</h2></label>
+                        <input type="radio" name="userCategory" id="things" />
 
-                        <input type="radio" name="love" id="love" />
                         <label  htmlFor="love"><h2>Love</h2></label>
+                        <input type="radio" name="userCategory" id="love" />
 
-                        <input type="radio" name="work" id="work" />
                         <label  htmlFor="work"><h2>Work</h2></label>
+                        <input type="radio" name="userCategory" id="work" />
 
-                        <input type="radio" name="other" id="other" />
                         <label  htmlFor="other"><h2>Other</h2></label>
+                        <input type="radio" name="userCategory" id="other" />
                     </div>
                     
-                    <div className="userWishInput">
-                        <textarea id="userWish" name="userWish" rows="4" cols="50"/>
+                    <div className="userWishInput" onChange={this.enterUserWish}>
                         <label htmlFor="userWish">Write your wish!</label>
+                        <textarea id="userWish" name="userWish" rows="4" cols="40" placeholder = "write your wish here..." required/>
                     </div>
 
                     <button>Submit the Wish!</button>
                 </form>
 
-                <Link to="/maze">
-                    <button>COIN</button>
-                </Link>
+
+                {/* Condition to render the coin only when the submit event is completed */}
+                {
+                    (this.props.adviceSlip.length === 0)?
+                        null
+                    :
+                        <Link to="/maze">
+                            <button>COIN</button>
+                        </Link>
+                }
+                
                 
             </div>
         )

@@ -6,3 +6,18 @@
     width: 80%;
     box-shadow: 0 0 10px $fontPrimary;
 }
+
+.userSelectionOptions{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin: 0 auto;
+    padding: 20px 0;
+    width: 60%;
+}
+
+textarea{
+    resize: none;
+    padding: 10px;
+    font-family: $bodyFont;
+    overflow: hidden;
+}
