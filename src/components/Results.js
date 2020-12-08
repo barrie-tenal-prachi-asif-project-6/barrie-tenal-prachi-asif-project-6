@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import ZoltarRedEyes from './ZoltarRedEyes.js';
 import { Link } from 'react-router-dom';
 
 class Results extends Component {
@@ -6,7 +7,8 @@ class Results extends Component {
     return (
        <>
         <h3>Results!!!</h3>
-        <p>{this.props.adviceSlip[0].advice}</p>
+        <ZoltarRedEyes />
+        {/* <p>{this.props.adviceSlip[0].advice}</p> */}
         <Link to ="/">
         <button>Play Again!</button>
         </Link>
