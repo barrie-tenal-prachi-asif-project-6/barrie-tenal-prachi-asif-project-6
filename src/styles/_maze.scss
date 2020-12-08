@@ -3,8 +3,9 @@
     cursor: pointer;
     display: flex;
     flex-wrap: wrap;
-    width: 560px;
-    height: 560px;
+    width: 600px;
+    height: 600px;
+    box-shadow: 0 0 10px $font-primary;
         div {
             width: 20px;
             height: 20px;
@@ -16,12 +17,20 @@
 }
 
 .wall {
-    background-color: black;
+    background-color: $font-primary;
     border-radius: 5px;
     background-image: url("https://i.ibb.co/3M2Q7Gx/brick-maze-pattern.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 0 0 1px $font-primary;
+}
+
+.end {
+    background-color: $tertiary-colour;
+}
+
+.border {
+    background-color: $font-primary;
 }
 
 .coin {
