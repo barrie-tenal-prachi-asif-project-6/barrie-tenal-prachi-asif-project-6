@@ -146,9 +146,6 @@ class Maze extends Component {
         document.addEventListener('keydown', moveCoin);
     }
 
-
-
-
     render() { 
         return (
             <>
@@ -162,6 +159,8 @@ class Maze extends Component {
                     </Link>
                     : null
                 }
+
+                <button onClick={this.moveRight}>Right</button>
             </>
         );
     }
