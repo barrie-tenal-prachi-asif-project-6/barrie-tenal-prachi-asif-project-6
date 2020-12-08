@@ -1,17 +1,17 @@
-.zoltar-image-container {
+.zoltarImageContainer {
     display: flex;
     justify-content: center;
     padding: 50px;
-        .zoltar-image {
+        .zoltarImage {
             box-shadow: 0 0 10px black;
             width: 300px;
             position: relative;
-                .zoltar-mouth {
+                .zoltarMouth {
                     position: absolute;
                     z-index: 10;
                     top: 0px;
                     left: 0;
-                    animation: moving-mouth 2s linear infinite;
+                    animation: movingMouth 2s linear infinite;
                     // animation-duration: 2s;
                     // animation-iteration-count: infinite;
                     // animation-timing-function: linear;
@@ -19,7 +19,7 @@
         }
 }
 
-@keyframes moving-mouth {
+@keyframes movingMouth {
     0% {top: 0px;}
     25% {top: 7.5px;}
     50% {top: 15px;}
