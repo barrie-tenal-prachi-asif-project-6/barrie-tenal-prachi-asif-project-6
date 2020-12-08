@@ -4,6 +4,7 @@ import Zoltar from './components/Zoltar.js';
 import Maze from './components/Maze.js';
 import Results from './components/Results.js';
 import Instructions from './components/Instructions.js';
+import Footer from './components/Footer.js';
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './styles/App.scss';
@@ -79,6 +80,7 @@ class App extends Component {
               return <Results adviceSlip={this.state.adviceSlip} />;
             }}
           />
+          <Footer />
         </>
       </Router>
     );

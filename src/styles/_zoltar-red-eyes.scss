@@ -1,0 +1,33 @@
+
+.zoltar-red-eyes {
+    position: absolute;
+    opacity: 0;
+    animation: red-eyes 1.4s linear infinite;
+}
+.zoltar-red-eyes-mouth {
+    position: absolute;
+    z-index: 10;
+    top: 0px;
+    left: 0;
+    animation: moving-mouth-results 1.5s linear forwards;
+    // animation-duration: 2s;
+    // animation-iteration-count: infinite;
+    // animation-timing-function: linear;
+}
+
+
+@keyframes moving-mouth-results {
+    0% {top: 0px;}
+    25% {top: 7.5px;}
+    50% {top: 15px;}
+    75% {top: 22.5px;}
+    100% {top: 30px;}
+}
+
+@keyframes red-eyes {
+    0% {opacity: 0;}
+    25% {opacity: 50%}
+    50% {opacity: 100%}
+    75% {opacity: 50%}
+    100% {opacity:0%}
+}
