@@ -7,14 +7,14 @@ class Results extends Component {
   
   render() { 
     return (
-       <>
-        <h3>Your wish is granted! </h3>
-        <ZoltarRedEyes />
-        <p>{this.props.adviceSlip[0].advice}</p>
-        <Link to ="/">
-        <button>Play Again!</button>
-        </Link>
-       </>
+        <>
+          <h3>Your wish is granted! </h3>
+          <ZoltarRedEyes />
+          <p>{this.props.adviceSlip[0].advice}</p>
+          <Link to ="/">
+          <button>Play Again!</button>
+          </Link>
+        </>
     )
   }
 }
