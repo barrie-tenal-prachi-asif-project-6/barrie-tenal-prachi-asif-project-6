@@ -1,14 +1,18 @@
 .maze {
-    margin: 30px;
+    margin: 0 auto;
     cursor: pointer;
     display: flex;
     flex-wrap: wrap;
-    width: 600px;
-    height: 600px;
+    width: 70vw;
+    min-width: 300px;
+    max-width: 750px;
+    height: 70vw;
+    min-height: 300px;
+    max-height: 750px;
     box-shadow: 0 0 10px $font-primary;
         div {
-            width: 20px;
-            height: 20px;
+            width: calc(100% / 30);
+            height: calc(100% / 30);
         }
 }
 
