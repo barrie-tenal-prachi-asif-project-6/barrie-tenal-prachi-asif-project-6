@@ -1,8 +1,55 @@
 .instructionsFormContainer{
     background-color: $fontSecondary;
-    border: 2px solid $fontPrimary;
+    border: 5px solid $fontPrimary;
     margin: 0 auto;
-    padding: 10px;
+    padding: 15px;
     width: 80%;
-    box-shadow: 0 0 10px $fontPrimary;
+    box-shadow: 0 0 15px $fontPrimary;
+        p {
+            margin-bottom: 30px;
+            line-height: 3rem;
+        }
+}
+
+form {
+        .userNameInput input {
+            padding: 10px;
+            width: 100%;
+        }
+        .userSelectionOptions {
+            display: flex;
+            flex-wrap: wrap;
+                label {
+                    font-size: 1.5rem;
+                    text-transform: uppercase;
+                    text-align: center;
+                    background-color: $secondaryColour;
+                    color: $fontSecondary;
+                    border: 2px solid $fontPrimary;
+                    width: calc(100%);
+                    padding: 15px 0;
+                    margin-top: 40px;
+                    transition: 0.3s all;
+                    cursor: pointer;
+                        &:hover,
+                        &:active,
+                        &:focus {
+                            background-color: $tertiaryColour;
+                        }
+                }
+                input[type=radio] {
+                    position: absolute;
+                    opacity: 0;
+                        &:checked + label {
+                            background-color: $primaryColour;
+                            font-weight: 700;
+                        }
+                }
+        }
+        .userWishInput textarea {
+            margin: 40px 0 20px 0;
+            padding: 10px;
+            width: 100%;
+            resize: none;
+        }
 }

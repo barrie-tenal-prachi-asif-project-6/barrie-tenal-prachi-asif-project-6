@@ -9,7 +9,8 @@
     height: 70vw;
     min-height: 300px;
     max-height: 750px;
-    box-shadow: 0 0 10px $font-primary;
+    box-shadow: 0 0 10px $fontPrimary;
+    background-color: $fontSecondary;
         div {
             width: calc(100% / 30);
             height: calc(100% / 30);
@@ -17,7 +18,7 @@
 }
 
 .path {
-    background-color: transparent;
+    background-color: $fontSecondary;
 }
 
 .wall {
@@ -30,11 +31,11 @@
 }
 
 .end {
-    background-color: $tertiary-colour;
+    background-color: $tertiaryColour;
 }
 
 .border {
-    background-color: $font-primary;
+    background-color: $fontPrimary;
 }
 
 .coin {
