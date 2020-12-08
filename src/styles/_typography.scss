@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri&family=Poiret+One&display=swap');
+
+$bodyFont: 'Hind Siliguri', sans-serif;
+$headingFont: 'Poiret One', cursive;
+
+
+body {
+    font-family: $bodyFont;
+    font-size: 2rem;
+    h1 {
+        font-family: $headingFont;
+        font-size: 9rem;
+        padding: 25px;
+    }
+}
+
