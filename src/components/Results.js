@@ -8,7 +8,7 @@ class Results extends Component {
        <>
         <h3>Results!!!</h3>
         <ZoltarRedEyes />
-        {/* <p>{this.props.adviceSlip[0].advice}</p> */}
+        <p>{this.props.adviceSlip[0].advice}</p>
         <Link to ="/">
         <button>Play Again!</button>
         </Link>
