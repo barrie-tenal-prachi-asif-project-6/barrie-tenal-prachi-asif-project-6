@@ -10,11 +10,12 @@ import './styles/App.scss';
 
 
 
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      adviceSlip: []
+      adviceSlip: [],
     };
   }
 

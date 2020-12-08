@@ -70,8 +70,6 @@
     // food (3)
     // feeling (2) - 'emotions'
     // You - 92
-    // Life - 11
-    // People - 11
     // Things - 10
     // Good - 9
     // Self - 8
