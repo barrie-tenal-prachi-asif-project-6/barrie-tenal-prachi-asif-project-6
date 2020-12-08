@@ -68,6 +68,7 @@ class App extends Component {
                 <Instructions
                   getSpecificAdvice={this.getSpecificAdvice}
                   getRandomAdvice={this.getRandomAdvice}
+                  adviceSlip={this.state.adviceSlip}
                 />
               );
             }}

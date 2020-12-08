@@ -3,10 +3,12 @@ import ZoltarRedEyes from './ZoltarRedEyes.js';
 import { Link } from 'react-router-dom';
 
 class Results extends Component {
+
+  
   render() { 
     return (
        <>
-        <h3>Results!!!</h3>
+        <h3>Your wish is granted! </h3>
         <ZoltarRedEyes />
         <p>{this.props.adviceSlip[0].advice}</p>
         <Link to ="/">
@@ -23,3 +25,6 @@ export default Results;
 //     const randomNumber = Math.floor(Math.random() * array.length);
 //     return array[randomNumber];
 // }
+
+// selectedAdviceSlip = randomizer(this.props.adviceSlip)
+// add the  selectedAdviceSlip[0].advice as an advice , and selectedAdviceSlip[0].id as key
