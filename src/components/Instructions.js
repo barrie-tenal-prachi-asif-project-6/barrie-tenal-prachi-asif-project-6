@@ -61,31 +61,31 @@ class Instructions extends Component {
                     </div>
 
                     <div className="userSelectionOptions" onChange={this.handleSelect}>
-                        <input type="radio" name="userCategory" id="people" />
+                        <input type="radio" name="userCategory" id="people" required/>
                         <label htmlFor="people"><h2>Social</h2></label>
 
-                        <input type="radio" name="userCategory" id="happiness" />
+                        <input type="radio" name="userCategory" id="happiness" required/>
                         <label htmlFor="happiness"><h2>Happiness</h2></label>
 
-                        <input type="radio" name="userCategory" id="you" />
+                        <input type="radio" name="userCategory" id="you" required/>
                         <label htmlFor="you"><h2>Self Improvement</h2></label>
 
-                        <input type="radio" name="userCategory" id="good" />
+                        <input type="radio" name="userCategory" id="good" required/>
                         <label htmlFor="good"><h2>Feeling Good</h2></label>
 
-                        <input type="radio" name="userCategory" id="life" />
+                        <input type="radio" name="userCategory" id="life" required/>
                         <label htmlFor="life"><h2>Life</h2></label>
 
-                        <input type="radio" name="userCategory" id="things" />
+                        <input type="radio" name="userCategory" id="things" required/>
                         <label  htmlFor="things"><h2>Things</h2></label>
 
-                        <input type="radio" name="userCategory" id="love" />
+                        <input type="radio" name="userCategory" id="love" required/>
                         <label  htmlFor="love"><h2>Love</h2></label>
 
-                        <input type="radio" name="userCategory" id="work" />
+                        <input type="radio" name="userCategory" id="work" required/>
                         <label  htmlFor="work"><h2>Work</h2></label>
 
-                        <input type="radio" name="userCategory" id="other" />
+                        <input type="radio" name="userCategory" id="other" required/>
                         <label  htmlFor="other"><h2>Other</h2></label>
                     </div>
                     
