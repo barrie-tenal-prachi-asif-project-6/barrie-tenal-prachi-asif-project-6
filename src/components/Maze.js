@@ -1,10 +1,13 @@
 import { Component } from 'react';
+import { Link } from 'react-router-dom'
+
 
 class Maze extends Component {
     constructor() {
         super();
         this.state = {
-            maze: []
+            maze: [],
+            endPoint: false,
         }
     }
 
@@ -127,32 +130,51 @@ class Maze extends Component {
 
             // add the coin class to the coin's new index
             this.state.maze[coinCurrentIndex].classList.add('coin');
+
+
+
+            // 
+            if (coinCurrentIndex === 782) {
+                this.setState({
+                    endPoint: true
+                })
+            }
+            console.log('COIN INDEX:', coinCurrentIndex);
         }
-
-
-
-
 
         // listen for the user to click one of the 4 arrow keys within the function that moves the coin 
         document.addEventListener('keydown', moveCoin);
 
 
-        // NOTE: perhaps wait to see if coin's index number is 783, then show a pop-up that congratulates user and asks them to click a button to receive their advice (then that button routes them to advice page)
+
     }
 
 
 
-    // componentDidUpdate() {
-    //     document.addEventListener('keydown', moveCoin);
-    // }
+    componentDidUpdate() {
+        // document.addEventListener('keydown', moveCoin);
+        // this.createMazeAndCoin();
+    }
 
 
 
     render() { 
         return (
-            <div className="maze" onClick={this.createMazeAndCoin} onKeyDown={this.moveCoin}>
+            <>
+                <h2 onClick={this.createMazeAndCoin}>the maze is below, CLICK ME </h2>
+                <div className="maze" onKeyDown={this.moveCoin}>
                 {/* <p>CLICK ME FOR MAZE</p> */}
-            </div>
+                {/* {this.createMazeAndCoin()} */}
+                </div>
+                {
+                    (this.state.endPoint)
+                    ?
+                    <Link to="/results">
+                        <button>CLICK FOR RESULTS</button>
+                    </Link>
+                    : null
+                }
+            </>
         );
     }
 }
