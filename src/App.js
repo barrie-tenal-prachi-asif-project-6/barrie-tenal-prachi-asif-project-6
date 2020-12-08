@@ -33,27 +33,41 @@ class App extends Component {
   }
 
   // Calling random advice API on mount to get a random advice......
-  componentDidMount() {
+  // componentDidMount() {
+  //   this.getRandomAdv();
+  // }
+
+  getRandomAdv =()=>{
     axios({
-      url: 'https://api.adviceslip.com/advice',
+      url: `https://api.adviceslip.com/advice?timestamp=${new Date().getTime()}`,
       method: 'GET',
       responseType: 'json'
     })
       .then((res) => {
-        console.log(res.data.slip);
+        console.log('click here', res);
         const newAdvice = []
         newAdvice.push(res.data.slip)
         this.setState({
           randomAdviceSlip: newAdvice
-        })
-        console.log(this.state.randomAdviceSlip);
+        }, ()=>{
+          console.log('Will it make a diffe???',this.state.randomAdviceSlip);
+        }
+        )
       })
   }
+
+  newFunction =() =>{
+    this.getRandomAdv();
+    this.getRandomAdv();
+  }
+
 
   render() {
     return (
       <>
         <Header />
+        <button onClick={this.newFunction}
+         >CLICK HERE!</button>
         <Zoltar />
         {/* Passing the function to call the specific selected category to the child  */}
         <Instructions
