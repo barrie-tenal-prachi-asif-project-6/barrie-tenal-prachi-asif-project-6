@@ -62,42 +62,42 @@ class Instructions extends Component {
 
                 <form onSubmit={this.handleSubmit}>
                     <div className="userNameInput">
-                        <label htmlFor="userName">Type your name</label>
                         <input type="text" id="userName" placeholder="Sam Smith" required onChange={this.enterUserName} />
+                        <label htmlFor="userName" className="srOnly">Type your name</label>
                     </div>
 
                     <div className="userSelectionOptions" onChange={this.handleSelect}>
-                        <label htmlFor="people"><h2>Social</h2></label>
                         <input type="radio" name="userCategory" id="people" />
+                        <label htmlFor="people"><h2>Social</h2></label>
 
-                        <label htmlFor="happiness"><h2>Happiness</h2></label>
                         <input type="radio" name="userCategory" id="happiness" />
+                        <label htmlFor="happiness"><h2>Happiness</h2></label>
 
-                        <label htmlFor="you"><h2>Self Improvement</h2></label>
                         <input type="radio" name="userCategory" id="you" />
+                        <label htmlFor="you"><h2>Self Improvement</h2></label>
 
-                        <label htmlFor="good"><h2>Feeling Good</h2></label>
                         <input type="radio" name="userCategory" id="good" />
+                        <label htmlFor="good"><h2>Feeling Good</h2></label>
 
-                        <label htmlFor="life"><h2>Life</h2></label>
                         <input type="radio" name="userCategory" id="life" />
+                        <label htmlFor="life"><h2>Life</h2></label>
 
-                        <label  htmlFor="things"><h2>Things</h2></label>
                         <input type="radio" name="userCategory" id="things" />
+                        <label  htmlFor="things"><h2>Things</h2></label>
 
-                        <label  htmlFor="love"><h2>Love</h2></label>
                         <input type="radio" name="userCategory" id="love" />
+                        <label  htmlFor="love"><h2>Love</h2></label>
 
-                        <label  htmlFor="work"><h2>Work</h2></label>
                         <input type="radio" name="userCategory" id="work" />
+                        <label  htmlFor="work"><h2>Work</h2></label>
 
+                        <input type="radio" name="userCategory" id="other" />
                         <label  htmlFor="other"><h2>Other</h2></label>
-                        <input type="radio" name="userCategory" id="other" checked />
                     </div>
                     
                     <div className="userWishInput" onChange={this.enterUserWish}>
-                        <label htmlFor="userWish">Write your wish!</label>
                         <textarea id="userWish" name="userWish" rows="4" cols="40" placeholder = "I wish...." required/>
+                        <label htmlFor="userWish" className="srOnly">Write your wish!</label>
                     </div>
 
                     <button>Submit the Wish!</button>
