@@ -17,6 +17,7 @@ class App extends Component {
     super();
     this.state = {
       adviceSlip: [],
+      userName: "",
     };
   }
 
@@ -49,8 +50,12 @@ class App extends Component {
     });
   };
 
- 
-
+  // updateName()
+  updateName = (recievedUserName) => {
+    this.setState({
+      userName: recievedUserName
+    }, console.log(this.state.userName))
+  }
 
   render() {
     return (
@@ -69,6 +74,7 @@ class App extends Component {
                   getSpecificAdvice={this.getSpecificAdvice}
                   getRandomAdvice={this.getRandomAdvice}
                   adviceSlip={this.state.adviceSlip}
+                  updateName={this.updateName}
                 />
               );
             }}
@@ -78,7 +84,10 @@ class App extends Component {
           <Route
             path="/results"
             render={() => {
-              return <Results adviceSlip={this.state.adviceSlip} />;
+              return <Results 
+              adviceSlip={this.state.adviceSlip}
+              userName={this.state.userName} 
+              />;
             }}
           />
           <Footer />

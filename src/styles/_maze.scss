@@ -55,3 +55,13 @@
 		transform: rotateZ(360deg);
 	}
 }
+
+.arrowButtonsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .buttonGridDivs {
+        // height: 200px;
+        width: 200px;
+        // background-color: ;
+    }
+}

@@ -1,10 +1,6 @@
-// Prachi
 import { Link } from 'react-router-dom';
 import { Component } from 'react';
 
-// PROPS:
-// getSpecificAdvice = { this.getSpecificAdvice }
-// getRandomAdvice = { this.getRandomAdvice }
 
 class Instructions extends Component {
 
@@ -12,28 +8,24 @@ class Instructions extends Component {
         super();
         this.state={
             selectedCategory: "",
-            userName: "",
             userWish: ""
         }
     }
     
-    // Function for taking the userName
-    enterUserName = (e) =>{
-        e.preventDefault();
-        this.setState({
-            userName: e.target.value
-        })
+    // Function for grabbing & storing the user's name
+    enterUserName = (e) => {
+        this.props.updateName(e.target.value);
     }
 
-    enterUserWish = (e) =>{
+    // Function for grabbing & storing the user's wish description
+    enterUserWish = (e) => {
         console.log(e.target.value);
         this.setState({
             userWish: e.target.value
         })
     }
 
-    // function for storing the wish
-
+    // Function for grabbing & storing the user's wish category
     handleSelect = (e) => {
         console.log(e.target.id)
         this.setState({
@@ -41,11 +33,13 @@ class Instructions extends Component {
         })
     }
 
+    // Function for calling the API functions depending on the user's wish category choice
     handleSubmit = (e) => {
         e.preventDefault();
+        // If the user chooses the wish category of 'other', call the function that initiates an API call to the random advice generator. If the user selects any other wish category, then call the function that initiates an API call to the specific advice generator, passing through their chosen wish category as an argument to ensure related advice is received.
         if (this.state.selectedCategory === 'other'){
             this.props.getRandomAdvice();
-        }else{
+        } else {
             this.props.getSpecificAdvice(this.state.selectedCategory);
         }
     }
@@ -67,31 +61,31 @@ class Instructions extends Component {
                     </div>
 
                     <div className="userSelectionOptions" onChange={this.handleSelect}>
-                        <input type="radio" name="userCategory" id="people" />
+                        <input type="radio" name="userCategory" id="people" required/>
                         <label htmlFor="people"><h2>Social</h2></label>
 
-                        <input type="radio" name="userCategory" id="happiness" />
+                        <input type="radio" name="userCategory" id="happiness" required/>
                         <label htmlFor="happiness"><h2>Happiness</h2></label>
 
-                        <input type="radio" name="userCategory" id="you" />
+                        <input type="radio" name="userCategory" id="you" required/>
                         <label htmlFor="you"><h2>Self Improvement</h2></label>
 
-                        <input type="radio" name="userCategory" id="good" />
+                        <input type="radio" name="userCategory" id="good" required/>
                         <label htmlFor="good"><h2>Feeling Good</h2></label>
 
-                        <input type="radio" name="userCategory" id="life" />
+                        <input type="radio" name="userCategory" id="life" required/>
                         <label htmlFor="life"><h2>Life</h2></label>
 
-                        <input type="radio" name="userCategory" id="things" />
+                        <input type="radio" name="userCategory" id="things" required/>
                         <label  htmlFor="things"><h2>Things</h2></label>
 
-                        <input type="radio" name="userCategory" id="love" />
+                        <input type="radio" name="userCategory" id="love" required/>
                         <label  htmlFor="love"><h2>Love</h2></label>
 
-                        <input type="radio" name="userCategory" id="work" />
+                        <input type="radio" name="userCategory" id="work" required/>
                         <label  htmlFor="work"><h2>Work</h2></label>
 
-                        <input type="radio" name="userCategory" id="other" />
+                        <input type="radio" name="userCategory" id="other" required/>
                         <label  htmlFor="other"><h2>Other</h2></label>
                     </div>
                     
@@ -104,7 +98,7 @@ class Instructions extends Component {
                 </form>
 
 
-                {/* Condition to render the coin only when the submit event is completed */}
+                {/* Conditionally render the coin only when the submit event is completed */}
                 {
                     (this.props.adviceSlip.length === 0)?
                         null
