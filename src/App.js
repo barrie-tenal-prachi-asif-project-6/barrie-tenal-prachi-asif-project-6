@@ -10,6 +10,7 @@ import './styles/App.scss';
 
 
 
+
 class App extends Component {
   constructor() {
     super();
@@ -47,6 +48,9 @@ class App extends Component {
     });
   };
 
+ 
+
+
   render() {
     return (
       <Router>
@@ -75,11 +79,6 @@ class App extends Component {
               return <Results adviceSlip={this.state.adviceSlip} />;
             }}
           />
-
-          {/* when rendering the last page for advice show: 
-          if selectedCategory===other ?
-          display component with the randomAdvice[] as a prop
-          : display wish component with specificAdvice as a prop */}
         </>
       </Router>
     );
