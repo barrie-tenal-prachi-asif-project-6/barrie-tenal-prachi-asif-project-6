@@ -1,3 +1,5 @@
+/* eslint-disable react/no-direct-mutation-state */
+/* eslint-disable default-case */
 import { Component } from 'react';
 import { Link } from 'react-router-dom'
 
@@ -7,44 +9,47 @@ class Maze extends Component {
         super();
         this.state = {
             maze: [],
-            endPoint: false,
-        }
+            hasCoinCompletedMaze: false,
+            coinCurrentIndex: 32
+        };
     }
 
 
-    // a function that builds the maze & displays both the maze & coin onto the users page
+    // Function that builds the maze & displays both the maze & coin onto the users page
     createMazeAndCoin = () => {
         // BUILDING MAZE ----------------------------------------
         // build an example maze template within an array by using 0's (path) and 1's (wall)
         const mazeLayout = [
-            1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-            1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1,
-            1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1,
-            1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1,
-            1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,
-            1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,
-            1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-            1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,
-            1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1,
-            1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1,
-            1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1,
-            1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
-            1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1,
-            1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1,
-            1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1,
-            1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1,
-            1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1,
-            1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1,
-            1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
-            1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1,
-            1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1,
-            1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1,
-            1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1,
-            1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1,
-            1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1,
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1
+            2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+            2, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
+            2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 2,
+            2, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 2,
+            2, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 2,
+            2, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 2,
+            2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 2,
+            2, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 2,
+            2, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 2,
+            2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2,
+            2, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 2,
+            2, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 2,
+            2, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 2,
+            2, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 2,
+            2, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2,
+            2, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 2,
+            2, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 2,
+            2, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 2,
+            2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 2,
+            2, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 2,
+            2, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 2,
+            2, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 2,
+            2, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 2,
+            2, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 2,
+            2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 2,
+            2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 2,
+            2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 2,
+            2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 2,
+            2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 2,
+            2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2
         ]
 
         // DISPLAYING MAZE & COIN ----------------------------------------
@@ -69,111 +74,172 @@ class Maze extends Component {
                 mazeSquares[i].classList.add('path');
             } else if (mazeLayout[i] === 1) {
                 mazeSquares[i].classList.add('wall');
+            } else if (mazeLayout[i] === 2) {
+                mazeSquares[i].classList.add('border');
+            } else if (mazeLayout[i] === 3) {
+                mazeSquares[i].classList.add('end');
             }
         }
 
         // display coin in the maze
-        let coinCurrentIndex = 1
-        mazeSquares[coinCurrentIndex].classList.add('coin');
+        mazeSquares[this.state.coinCurrentIndex].classList.add('coin');
 
         // update the maze state with the new mazeSquares array
         this.setState({
             maze: mazeSquares
         })
 
+        // call the function that allows the user to move the coin around the maze
+        this.moveCoin();
+    }
 
 
 
 
 
-        console.log('FULL MAZE ARRAY HERE:', mazeSquares)
 
-        // MOVING COIN ----------------------------------------
-        // a function that moves the coin through the maze when the user presses the up, down, left, and right arrow keys
+    // Function that moves the coin through the maze when the user uses up, down, left, and right arrows on their keyboard
+    moveCoin = (event) => {
         const moveCoin = (event) => {
             
             // remove the coin class from the coin's starting index
-            this.state.maze[coinCurrentIndex].classList.remove('coin');
+            this.state.maze[this.state.coinCurrentIndex].classList.remove('coin');
             
             switch (event.keyCode) {
-                // if user hits the left arrow key:
-                    // (a) check to see if the index number that is one below the coin's current index number (ie: check the value of the index number to the 'left' of the coin's current index number) is actually a path (ie: ensure it is not a wall)
-                    // (b) if above condition is satisfied, subtract one from the coin's current index number
                 case 37:
-                    if (this.state.maze[coinCurrentIndex -1].classList.contains('path')) coinCurrentIndex -=1
+                    this.moveLeft();
                     break
 
-                //  if user hits right arrow key:
-                    // (a) check to see if the index number that is one above the coin's current index number (ie: check the value of the index number to the 'right' of the coin's current index number) is actually a path
-                    // (b) if above condition is satisfied, add one to the coin's current index number
                 case 39:
-                    if (this.state.maze[coinCurrentIndex + 1].classList.contains('path')) coinCurrentIndex += 1
+                    this.moveRight();
                     break
 
-                //  if user hits up arrow key:
-                    // (a) check to see if the coin is able to continue moving up (ie: ensure the coin's current index number subtracted by 28 is equal to or greater than 0 - because if it's less than 0 and the user hits the up arrow, the coin will disappear off of the top edge of the maze as this means the coin is currently located along the top edge of the maze (index # 0 to 27))
-                    // (b) check to see if the index number that is 28 below the coin's current index number (ie: check the value of the index number that is directly 'on top' of the coin's current index number) is actually a path
-                    // (c) if both above conditions are satisfied, subtract 28 from the coin's current index number (ie: the width/height of the maze)
                 case 38:
-                    if (coinCurrentIndex - 28 >= 0 && this.state.maze[coinCurrentIndex - 28].classList.contains('path')) coinCurrentIndex -=28
+                    this.moveUp();
                     break
 
-                //  if user hits down arrow key:
-                    // (a) check to see if the coin is able to continue moving down (ie: ensure that 28 added to the coin's current index number is less than 28*28 (784) - because if it's more than 784 and the user hits the down arrow, the coin will disappear off of the bottom edge of the maze as this means the coin is currently located along the bottom edge of the maze (index # 756 to 784))
-                    // (b) check to see if the index number that is 28 above the coin's current index number (ie: check the value of the index number that is directly 'beneath' of the coin's current index number) is actually a path
-                    // (c) if both above condition is satisfied, add 28 to the coin's current index number (ie: the width/height of the maze)
                 case 40:
-                    if (coinCurrentIndex + 28 < 28 * 28 && mazeSquares[coinCurrentIndex + 28].classList.contains('path')) coinCurrentIndex += 28
+                    this.moveDown();
                     break
 
             }
 
             // add the coin class to the coin's new index
-            this.state.maze[coinCurrentIndex].classList.add('coin');
+            this.state.maze[this.state.coinCurrentIndex].classList.add("coin");
 
-
-
-            // 
-            if (coinCurrentIndex === 782) {
+            // if the coin's current index number is 897 (ie: if the coin has completed the maze), then set the 'has coin completed maze' state to true which will display the button that allows the user to progress to the results page
+            if (this.state.coinCurrentIndex === 897) {
                 this.setState({
-                    endPoint: true
+                    hasCoinCompletedMaze: true
                 })
             }
-            console.log('COIN INDEX:', coinCurrentIndex);
+        }
+        // listen for the user to click one of the 4 arrow keys within the function that moves the coin 
+        document.addEventListener("keydown", moveCoin);
+    }
+
+
+    // Function that moves the coin through the maze when the user uses up, down, left, and right buttons rendered on their browser's page
+        // For each direction, refer to the movement method's for a description of logic used
+    handleArrowClick = (direction) => {
+        this.state.maze[this.state.coinCurrentIndex].classList.remove("coin");
+
+        switch (direction) {
+            case "up":
+                this.moveUp();
+                break
+
+            case "right": 
+                this.moveRight();
+                break
+
+            case "down":
+                this.moveDown();
+                break
+
+            case "left": 
+                this.moveLeft();
+                break
         }
 
-        // listen for the user to click one of the 4 arrow keys within the function that moves the coin 
-        document.addEventListener('keydown', moveCoin);
+        this.state.maze[this.state.coinCurrentIndex].classList.add("coin");
 
-
-
+        if (this.state.coinCurrentIndex === 897) {
+            this.setState({
+                hasCoinCompletedMaze: true
+            })
+        }
     }
 
 
-
-    componentDidUpdate() {
-        // document.addEventListener('keydown', moveCoin);
-        // this.createMazeAndCoin();
+    // function to move coin to the left
+    moveLeft = () => {
+        // if user hits the left arrow key:
+        // (a) check to see if the index number that is one below the coin's current index number (ie: check the value of the index number to the 'left' of the coin's current index number) is actually a path (ie: ensure it is not a wall)
+        // (b) if above condition is satisfied, subtract one from the coin's current index number
+        if (this.state.maze[this.state.coinCurrentIndex - 1].classList.contains('path'))
+            this.setState({
+                coinCurrentIndex: this.state.coinCurrentIndex -= 1
+            })
     }
 
+    // function to move coint to the right
+    moveRight = () => {
+        //  if user hits right arrow key:
+        // (a) check to see if the index number that is one above the coin's current index number (ie: check the value of the index number to the 'right' of the coin's current index number) is actually a path
+        // (b) if above condition is satisfied, add one to the coin's current index number
+        if (this.state.maze[this.state.coinCurrentIndex + 1].classList.contains('path'))
+            this.setState({
+                coinCurrentIndex: this.state.coinCurrentIndex += 1
+            })
+    }
+
+    // function to move coint to up
+    moveUp = () => {
+        //  if user hits up arrow key:
+        // (a) check to see if the coin is able to continue moving up (ie: ensure the coin's current index number subtracted by 28 is equal to or greater than 0 - because if it's less than 0 and the user hits the up arrow, the coin will disappear off of the top edge of the maze as this means the coin is currently located along the top edge of the maze (index # 0 to 27))
+        // (b) check to see if the index number that is 28 below the coin's current index number (ie: check the value of the index number that is directly 'on top' of the coin's current index number) is actually a path
+        // (c) if both above conditions are satisfied, subtract 28 from the coin's current index number (ie: the width/height of the maze)
+        if (this.state.coinCurrentIndex - 30 >= 0 && this.state.maze[this.state.coinCurrentIndex - 30].classList.contains('path'))
+            this.setState({
+                coinCurrentIndex: this.state.coinCurrentIndex -= 30
+            })
+    }
+
+    // function to move coint to down
+    moveDown = () => {
+        //  if user hits down arrow key:
+        // (a) check to see if the coin is able to continue moving down (ie: ensure that 28 added to the coin's current index number is less than 28*28 (784) - because if it's more than 784 and the user hits the down arrow, the coin will disappear off of the bottom edge of the maze as this means the coin is currently located along the bottom edge of the maze (index # 756 to 784))
+        // (b) check to see if the index number that is 28 above the coin's current index number (ie: check the value of the index number that is directly 'beneath' of the coin's current index number) is actually a path
+        // (c) if both above condition is satisfied, add 28 to the coin's current index number (ie: the width/height of the maze)
+        if (this.state.coinCurrentIndex + 30 < 30 * 30 && (this.state.maze[this.state.coinCurrentIndex + 30].classList.contains('path') || this.state.maze[this.state.coinCurrentIndex + 30].classList.contains('end')))
+            this.setState({
+                coinCurrentIndex: this.state.coinCurrentIndex += 30
+            })
+    }
 
 
     render() { 
         return (
             <>
-                <h2 onClick={this.createMazeAndCoin}>the maze is below, CLICK ME </h2>
-                <div className="maze" onKeyDown={this.moveCoin}>
-                {/* <p>CLICK ME FOR MAZE</p> */}
-                {/* {this.createMazeAndCoin()} */}
-                </div>
+                <h2 onClick={this.createMazeAndCoin}> the maze is below, CLICK ME </h2>
+                <div className="maze"></div>
                 {
-                    (this.state.endPoint)
+                    (this.state.hasCoinCompletedMaze)
                     ?
                     <Link to="/results">
                         <button>CLICK FOR RESULTS</button>
                     </Link>
                     : null
                 }
+                <div className="arrowButtonsGrid">
+                    <div className="buttonGridDivs"></div>
+                    <button  onClick={() => {this.handleArrowClick("up")}}>UP</button>
+                    <div className="buttonGridDivs"></div>
+                    <button  onClick={() => {this.handleArrowClick("left")}}>LEFT</button>
+                    <button  onClick={() => {this.handleArrowClick("down")}}>DOWN</button>
+                    <button  onClick={() => {this.handleArrowClick("right")}}>RIGHT</button>
+                </div>
             </>
         );
     }

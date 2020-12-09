@@ -1,18 +1,24 @@
 .maze {
-    margin: 30px;
+    margin: 0 auto;
     cursor: pointer;
     display: flex;
     flex-wrap: wrap;
-    width: 560px;
-    height: 560px;
+    width: 70vw;
+    min-width: 300px;
+    max-width: 750px;
+    height: 70vw;
+    min-height: 300px;
+    max-height: 750px;
+    box-shadow: 0 0 10px $fontPrimary;
+    background-color: $fontSecondary;
         div {
-            width: 20px;
-            height: 20px;
+            width: calc(100% / 30);
+            height: calc(100% / 30);
         }
 }
 
 .path {
-    background-color: transparent;
+    background-color: $fontSecondary;
 }
 
 .wall {
@@ -22,6 +28,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 0 0 1px $fontPrimary;
+}
+
+.end {
+    background-color: $tertiaryColour;
+}
+
+.border {
+    background-color: $fontPrimary;
 }
 
 .coin {
@@ -40,4 +54,14 @@
 	100% {
 		transform: rotateZ(360deg);
 	}
+}
+
+.arrowButtonsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .buttonGridDivs {
+        // height: 200px;
+        width: 200px;
+        // background-color: ;
+    }
 }
