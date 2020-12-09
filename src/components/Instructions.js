@@ -47,7 +47,12 @@ class Instructions extends Component {
 
     render() {
         return (
-            <div className="instructionsFormContainer">
+            <div className="wrapper instructionsFormContainer">
+                <img className="cornerImage topLeftCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird"/>
+                <img className="cornerImage topRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
+                <img className="cornerImage bottomRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
+                <img className="cornerImage bottomLeftCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
+
                 <section className="zoltarInstructions">
                     <p>
                         Zoltar speaks! Tell him your name, choose a category, and give a brief description of what you wish to learn. If you can navigate your coin through Zoltar's maze, he will grant you the advice you seek!
@@ -57,10 +62,19 @@ class Instructions extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="userNameInput">
                         <input type="text" id="userName" placeholder="Sam Smith" required onChange={this.enterUserName} />
-                        <label htmlFor="userName" className="srOnly">Type your name</label>
+                        <label htmlFor="userName" className="srOnly">Type your name here.</label>
                     </div>
 
                     <div className="userSelectionOptions" onChange={this.handleSelect}>
+                        <input type="radio" name="userCategory" id="love" required/>
+                        <label  htmlFor="love"><h2>Love</h2></label>
+
+                        <input type="radio" name="userCategory" id="life" required/>
+                        <label htmlFor="life"><h2>Life</h2></label>
+
+                        <input type="radio" name="userCategory" id="work" required/>
+                        <label  htmlFor="work"><h2>Work</h2></label>
+
                         <input type="radio" name="userCategory" id="people" required/>
                         <label htmlFor="people"><h2>Social</h2></label>
 
@@ -68,33 +82,24 @@ class Instructions extends Component {
                         <label htmlFor="happiness"><h2>Happiness</h2></label>
 
                         <input type="radio" name="userCategory" id="you" required/>
-                        <label htmlFor="you"><h2>Self Improvement</h2></label>
-
-                        <input type="radio" name="userCategory" id="good" required/>
-                        <label htmlFor="good"><h2>Feeling Good</h2></label>
-
-                        <input type="radio" name="userCategory" id="life" required/>
-                        <label htmlFor="life"><h2>Life</h2></label>
+                        <label htmlFor="you"><h2>Self</h2></label>
 
                         <input type="radio" name="userCategory" id="things" required/>
                         <label  htmlFor="things"><h2>Things</h2></label>
 
-                        <input type="radio" name="userCategory" id="love" required/>
-                        <label  htmlFor="love"><h2>Love</h2></label>
-
-                        <input type="radio" name="userCategory" id="work" required/>
-                        <label  htmlFor="work"><h2>Work</h2></label>
+                        <input type="radio" name="userCategory" id="good" required/>
+                        <label htmlFor="good"><h2>Feel Good</h2></label>
 
                         <input type="radio" name="userCategory" id="other" required/>
-                        <label  htmlFor="other"><h2>Other</h2></label>
+                        <label htmlFor="other"><h2>Other</h2></label>
                     </div>
                     
                     <div className="userWishInput" onChange={this.enterUserWish}>
-                        <textarea id="userWish" name="userWish" rows="4" cols="40" placeholder = "I wish...." required/>
-                        <label htmlFor="userWish" className="srOnly">Write your wish!</label>
+                        <textarea id="userWish" name="userWish" rows="4" cols="40" placeholder = "I wish to ask the almighty Zoltar what products he uses to style his sick stache." required/>
+                        <label htmlFor="userWish" className="srOnly">Type your wish here.</label>
                     </div>
 
-                    <button>Submit the Wish!</button>
+                    <button className="formSubmitButton">Submit Wish</button>
                 </form>
 
 
@@ -113,6 +118,5 @@ class Instructions extends Component {
         )
     }
 }
-export default Instructions;    
 
-
+export default Instructions;

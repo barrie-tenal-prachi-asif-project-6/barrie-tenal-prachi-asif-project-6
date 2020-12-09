@@ -2,6 +2,10 @@
 /* eslint-disable default-case */
 import { Component } from 'react';
 import { Link } from 'react-router-dom'
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward'
+import ArrowBackIcon from '@material-ui/icons/ArrowBack'
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 
 class Maze extends Component {
@@ -221,7 +225,7 @@ class Maze extends Component {
 
     render() { 
         return (
-            <>
+            <div className="MazeComponent">
                 <h2 onClick={this.createMazeAndCoin}> the maze is below, CLICK ME </h2>
                 <div className="maze"></div>
                 {
@@ -234,13 +238,21 @@ class Maze extends Component {
                 }
                 <div className="arrowButtonsGrid">
                     <div className="buttonGridDivs"></div>
-                    <button  onClick={() => {this.handleArrowClick("up")}}>UP</button>
+                    <button className="arrowButton upArrowButton" onClick={() => {this.handleArrowClick("up")}}>
+                        <ArrowUpwardIcon style={{ fontSize: 80 }} className="arrowIcons" />
+                    </button>
                     <div className="buttonGridDivs"></div>
-                    <button  onClick={() => {this.handleArrowClick("left")}}>LEFT</button>
-                    <button  onClick={() => {this.handleArrowClick("down")}}>DOWN</button>
-                    <button  onClick={() => {this.handleArrowClick("right")}}>RIGHT</button>
+                    <button className="arrowButton leftArrowButton" onClick={() => {this.handleArrowClick("left")}}>
+                        <ArrowBackIcon style={{ fontSize: 80 }} className="arrowIcons" />
+                    </button>
+                    <button className="arrowButton downArrowButton" onClick={() => {this.handleArrowClick("down")}}>
+                        <ArrowDownwardIcon style={{ fontSize: 80 }} className="arrowIcons" />
+                    </button>
+                    <button className="arrowButton rightArrowButton" onClick={() => {this.handleArrowClick("right")}}>
+                        <ArrowForwardIcon style={{ fontSize: 80 }} className="arrowIcons" />
+                    </button>
                 </div>
-            </>
+            </div>
         );
     }
 }
