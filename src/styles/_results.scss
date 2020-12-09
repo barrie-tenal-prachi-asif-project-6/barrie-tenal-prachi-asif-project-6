@@ -9,45 +9,45 @@
         width: 80%;
         box-shadow: 0 0 15px $fontPrimary;
         position: relative;
-        h2 {
-            font-family: $headingFont;
-            font-size: 2.5rem;
-            padding: 10px;
-            text-transform: capitalize;
-        }
+            h2 {
+                font-family: $headingFont;
+                font-size: 2.5rem;
+                padding: 10px;
+                text-transform: capitalize;
+            }
 
-        p {
-            font-family: $bodyFont;
-            font-size: 2rem;
-            padding: 20px 10px;
-            margin-bottom: 20px;
-        }
+            p {
+                font-family: $bodyFont;
+                font-size: 2rem;
+                padding: 20px 10px;
+                margin-bottom: 20px;
+            }
 
-        .resetWish {
-            font-family: $headingFont;
-            font-size: 2rem;
-            background-color: $fontPrimary;
-            color: $fontSecondary;
-            border: 3px solid $fontPrimary;
-            box-shadow: 0 0 5px $fontPrimary;
-            text-transform: uppercase;
-            padding: 10px 15px;
-            font-weight: bold;
-            letter-spacing: 4px;
-            line-height: 3rem;
-            transition: 0.3s linear;
-            margin-bottom: 40px;
-            cursor: pointer;
-                &:active,
-                &:focus {
-                    background-color: $tertiaryColour;
-                    color: $fontPrimary;
-                }
-        }
+            .resetWish {
+                font-family: $headingFont;
+                font-size: 2rem;
+                background-color: $fontPrimary;
+                color: $fontSecondary;
+                border: 3px solid $fontPrimary;
+                box-shadow: 0 0 5px $fontPrimary;
+                text-transform: uppercase;
+                padding: 10px 15px;
+                font-weight: bold;
+                letter-spacing: 4px;
+                line-height: 3rem;
+                transition: 0.3s linear;
+                margin-bottom: 40px;
+                cursor: pointer;
+                    &:active,
+                    &:focus {
+                        background-color: $tertiaryColour;
+                        color: $fontPrimary;
+                    }
+            }
     }
 
 
-
+/* ------------------- MEDIA QUERIES ------------------- */
 @media (min-width: 768px){
     .wishContainer {
         h2 {

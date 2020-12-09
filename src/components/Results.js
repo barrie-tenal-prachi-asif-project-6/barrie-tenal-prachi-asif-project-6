@@ -14,11 +14,12 @@ class Results extends Component {
     return (
       <div className="Results">
         <ZoltarRedEyes />
+
         <div className="wishContainer wrapper">
-          <img className="cornerImage topLeftCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
-          <img className="cornerImage topRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
-          <img className="cornerImage bottomLeftCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
-          <img className="cornerImage bottomRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
+          <img className="cornerImage topLeftCornerImage" src="https://i.ibb.co/pXsj53Z/top-Left-Corner.png" alt="a decorative corner drawing of an abstract bird" />
+          <img className="cornerImage topRightCornerImage" src="https://i.ibb.co/j6nyngG/top-Right-Corner.png" alt="a decorative corner drawing of an abstract bird" />
+          <img className="cornerImage bottomLeftCornerImage" src="https://i.ibb.co/wLTHwJh/bottom-Left-Corner.png" alt="a decorative corner drawing of an abstract bird" />
+          <img className="cornerImage bottomRightCornerImage" src="https://i.ibb.co/BNKzc4S/bottom-Right-Corner.png" alt="a decorative corner drawing of an abstract bird" />
 
             <h2>{this.props.userName}, your wish has been granted! </h2>
             <p>
