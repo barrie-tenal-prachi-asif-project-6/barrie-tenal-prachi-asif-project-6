@@ -50,8 +50,8 @@ class Instructions extends Component {
             <div className="wrapper instructionsFormContainer">
                 <img className="cornerImage topLeftCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird"/>
                 <img className="cornerImage topRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
-                <img className="cornerImage bottomRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
                 <img className="cornerImage bottomLeftCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
+                <img className="cornerImage bottomRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
 
                 <section className="zoltarInstructions">
                     <p>
