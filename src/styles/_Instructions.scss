@@ -114,6 +114,10 @@
 /* ------------------- MEDIA QUERIES ------------------- */
 /* MAJOR BREAKPOINT 1: portrait tablet & landscape phone */
 @media (min-width: 480px) {
+    .formSubmitButton {
+        margin-bottom: 40px;
+    }
+
     .userNameInput input,
     .userWishInput textarea,
     .formSubmitButton {
@@ -146,10 +150,20 @@
 
 /* MAJOR BREAKPOINT 3: desktops & laptops */
 @media (min-width: 940px) {
-
+    .instructionsFormContainer {
+        padding: 50px 75px;
+    }
 }
 
 /* MAJOR BREAKPOINT 4: larger desktops & up */
-@media (min-width: 1300px) {
+@media (min-width: 1224px) {
+    .instructionsFormContainer {
+        padding: 50px 100px;
+    }
 
+    .userNameInput input,
+    .userWishInput textarea,
+    .formSubmitButton {
+        width: 50%;
+    }
 }

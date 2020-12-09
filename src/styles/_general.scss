@@ -1,7 +1,4 @@
 // COLOUR VARIABLES ----------
-// $primary-colour:#e2804d;
-// $secondary-colour:#cf511b;
-// $tertiary-colour: #df96cc;
 $primaryColour:#792220;
 $secondaryColour: #2b4750;
 $tertiaryColour: #cf7741;
@@ -11,4 +8,9 @@ $fontSecondary: #f2e9dd;
 
 body{
     background-color: $primaryColour;
+}
+
+main {
+    min-height: 85vh;
+    padding-bottom: 50px;
 }
