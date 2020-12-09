@@ -1,3 +1,4 @@
+
 .instructionsFormContainer {
     background-color: $fontSecondary;
     border: 5px solid $fontPrimary;
@@ -7,35 +8,14 @@
     box-shadow: 0 0 15px $fontPrimary;
     position: relative;
     text-align: center;
-        .cornerImage {
-            width: 80px;
-            position: absolute;
-        }
-        .topLeftCornerImage {
-            top: 3px;
-            left: 3px;
-        }
-        .topRightCornerImage {
-            rotate: 90deg;
-            top: 3px;
-            right: 3px;
-        }
-        .bottomRightCornerImage {
-            rotate: 270deg;
-            bottom: 3px;
-            left: 3px;
-        }
-        .bottomLeftCornerImage {
-            rotate: 180deg;
-            bottom: 3px;
-            right: 3px;
-        }
         p {
             margin: 30px 5px 35px 5px;
             line-height: 3rem;
             padding: 0 10px;
         }
 }
+
+
 
 .userNameInput {
     width: 100%;
@@ -108,6 +88,31 @@
             background-color: $tertiaryColour;
             color: $fontPrimary;
         }
+}
+
+// Corner image styling for both instruction and results
+.cornerImage {
+    width: 80px;
+    position: absolute;
+}
+.topLeftCornerImage {
+    top: 3px;
+    left: 3px;
+}
+.topRightCornerImage {
+    rotate: 90deg;
+    top: 3px;
+    right: 3px;
+}
+.bottomRightCornerImage {
+    rotate: 270deg;
+    bottom: 3px;
+    left: 3px;
+}
+.bottomLeftCornerImage {
+    rotate: 180deg;
+    bottom: 3px;
+    right: 3px;
 }
 
 
