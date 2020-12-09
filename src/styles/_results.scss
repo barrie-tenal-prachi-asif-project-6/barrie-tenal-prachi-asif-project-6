@@ -47,12 +47,6 @@
     .wishContainer {
         h2 {
             font-size: 4.5rem;
-            overflow: hidden; 
-            white-space: nowrap; 
-            margin: 0 auto; 
-            letter-spacing: .15em; 
-            animation: 
-                typing 3s steps(40, end),
         }
 
         p {
@@ -67,6 +61,17 @@
                 color: $fontPrimary;
             }
         }
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    h2 {
+        overflow: hidden; 
+        white-space: nowrap; 
+        margin: 0 auto; 
+        // letter-spacing: .15em;
+        animation: 
+            typing 3s steps(40, end),
     }
 }
 
