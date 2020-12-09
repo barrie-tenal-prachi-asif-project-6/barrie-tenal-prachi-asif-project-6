@@ -5,12 +5,15 @@
     flex-wrap: wrap;
     width: 70vw;
     min-width: 300px;
-    max-width: 750px;
+    max-width: 550px;
     height: 70vw;
     min-height: 300px;
-    max-height: 750px;
+    max-height: 550px;
     box-shadow: 0 0 10px $fontPrimary;
     background-color: $fontSecondary;
+    position: absolute;
+    top: 50px;
+    visibility: hidden;
         div {
             width: calc(100% / 30);
             height: calc(100% / 30);
@@ -62,37 +65,61 @@
     justify-content: center;
     align-items: center;
     border: solid 1px blue;
+    position: relative;
     .mazeCoinImageContainer {
+        height: 300px;
+        width: 40%;
+        min-width: 250px;
         display: flex;
         flex-direction: column;
+        align-items: center;
         position: relative;
         .coinImage {
+            width: 50%;
             position: absolute;
-            top: -20px;
+            top: 0;
+            z-index: 10;
+            cursor: pointer;
         }
         .coinSlotTop, 
         .coinSlot {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 30%;
+        }
+        .coinSlotTop {
+            z-index: -10;
+        }
+        .coinSlot {
+            z-index: 20;
         }
     }
+}
 
+.coinDropAnimation {
+    animation: coinDrop 2s ease-in forwards;
+}
+
+@keyframes coinDrop {
+    0% {top: 0}
+    100% {top: 45%}
+}
+
+.coinFadeAnimation {
+    animation: fadeOut 1s ease-in 4s forwards;
 }
 
 .arrowButtonsGrid {
     padding: 40px 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 12.25px;
+    grid-gap: 5px;
     .arrowButton {
         color: $fontSecondary;
         font-weight: bold;
         font-size: 2rem;
         border: 2px solid $tertiaryColour;
         border-radius: 10px;
-        padding: 5px 20px;
-        margin: 30px auto;
+        padding: 5px;
         transition: all 0.3s ease-in;
         text-transform: uppercase;
         text-decoration: none;
