@@ -24,18 +24,20 @@
         .resetWish {
             font-family: $headingFont;
             font-size: 2rem;
-            background-color: $secondaryColour;
+            background-color: black;
             color: $fontSecondary;
-            border: 2px solid $fontPrimary;
+            border: 3px solid $fontPrimary;
             box-shadow: 0 0 5px $fontPrimary;
             padding: 10px 15px;
             cursor: pointer;
                 &:active,
                 &:focus {
                     background-color: $tertiaryColour;
+                    color: $fontPrimary;
                 }
         }
     }
+    
 }
  
 @media (min-width: 750px){
@@ -52,6 +54,7 @@
             font-size: 2.5rem;
             &:hover{
                 background-color: $tertiaryColour;
+                color: $fontPrimary;
             }
         }
     }
