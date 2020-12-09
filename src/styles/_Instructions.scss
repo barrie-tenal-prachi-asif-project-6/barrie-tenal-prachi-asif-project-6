@@ -5,6 +5,10 @@
     padding: 15px;
     width: 80%;
     box-shadow: 0 0 15px $fontPrimary;
+        img{
+            z-index: 999;
+            position: absolute;
+        }
         p {
             margin-bottom: 30px;
             line-height: 3rem;

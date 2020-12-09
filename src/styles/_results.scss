@@ -1,0 +1,58 @@
+@media (min-width: 320px){
+    .wishContainer {
+        text-align: center;
+        background-color: $fontSecondary;
+        border: 5px solid $fontPrimary;
+        margin: 0 auto;
+        padding: 25px;
+        width: 80%;
+        box-shadow: 0 0 15px $fontPrimary;
+        h3 {
+            font-family: $headingFont;
+            font-size: 2.5rem;
+            padding: 10px;
+            text-transform: capitalize;
+        }
+
+        p {
+            font-family: $headingFont;
+            font-size: 2rem;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .resetWish {
+            font-family: $headingFont;
+            font-size: 2rem;
+            background-color: $secondaryColour;
+            color: $fontSecondary;
+            border: 2px solid $fontPrimary;
+            box-shadow: 0 0 5px $fontPrimary;
+            padding: 10px 15px;
+            cursor: pointer;
+                &:active,
+                &:focus {
+                    background-color: $tertiaryColour;
+                }
+        }
+    }
+}
+ 
+@media (min-width: 750px){
+    .wishContainer {
+        h3 {
+            font-size: 4.5rem;
+        }
+
+        p {
+            font-size: 2.5rem;
+        }
+
+        .resetWish {
+            font-size: 2.5rem;
+            &:hover{
+                background-color: $tertiaryColour;
+            }
+        }
+    }
+}

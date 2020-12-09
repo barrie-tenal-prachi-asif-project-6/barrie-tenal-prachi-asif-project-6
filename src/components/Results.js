@@ -13,16 +13,18 @@ class Results extends Component {
   render() { 
     return (
       <div className="Results">
-        <h3>{this.props.userName}, your wish has been granted! </h3>
         <ZoltarRedEyes />
-        <p>
-          {
-            this.randomizer(this.props.adviceSlip)
-          }
-        </p>
-        <Link to="/">
-          <button>Make another wish!</button>
-        </Link>
+        <div className="wishContainer wrapper">
+          <h3>{this.props.userName}, your wish has been granted! </h3>
+          <p>
+            {
+              this.randomizer(this.props.adviceSlip)
+            }
+          </p>
+          <Link to="/">
+            <button className="resetWish">Make another wish!</button>
+          </Link>
+        </div>
       </div>
     );
   }

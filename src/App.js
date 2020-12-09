@@ -62,7 +62,6 @@ class App extends Component {
       <Router>
         <>
           <Header />
-
           <Route exact path="/" component={Zoltar} />
           {/* Passing the function to call the specific selected category to the child  */}
           <Route
@@ -78,15 +77,15 @@ class App extends Component {
                 />
               );
             }}
-            // selectedCategoryFunction = {this.setSelectedUserCategory}
+          // selectedCategoryFunction = {this.setSelectedUserCategory}
           />
           <Route path="/maze" component={Maze} />
           <Route
             path="/results"
             render={() => {
-              return <Results 
-              adviceSlip={this.state.adviceSlip}
-              userName={this.state.userName} 
+              return <Results
+                adviceSlip={this.state.adviceSlip}
+                userName={this.state.userName}
               />;
             }}
           />
