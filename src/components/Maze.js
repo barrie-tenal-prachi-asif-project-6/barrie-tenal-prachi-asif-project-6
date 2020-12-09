@@ -225,9 +225,19 @@ class Maze extends Component {
 
     render() { 
         return (
-            <div className="MazeComponent">
-                <h2 onClick={this.createMazeAndCoin}> the maze is below, CLICK ME </h2>
-                <div className="maze"></div>
+            <>
+            <section className="mazeInstructionsAndImage">
+                <h2>Insert your coin to begin Zoltar's Maze of Wonder!</h2>
+                <figure onClick={this.createMazeAndCoin} className="mazeCoinImageContainer">
+                    <img className="coinImage" src="https://i.ibb.co/0Z6N088/goldCoin.png" alt="a coin with a skull on it" />
+                    <img classname="coinSlotTop" src="https://i.ibb.co/t43gKMt/coin-Slot-Back.png" alt="coin slot tab" />
+                    <img classname="coinSlot" src="https://i.ibb.co/QD0CYkf/coin-Slot-Front.png" alt="insert a coin in this box" />
+                </figure>
+                    {/* <figure className="coinBoxImageContainer">
+                    </figure> */}
+            </section>
+
+            <section className="maze">
                 {
                     (this.state.hasCoinCompletedMaze)
                     ?
@@ -236,6 +246,7 @@ class Maze extends Component {
                     </Link>
                     : null
                 }
+            </section>
                 <div className="arrowButtonsGrid">
                     <div className="buttonGridDivs"></div>
                     <button className="arrowButton upArrowButton" onClick={() => {this.handleArrowClick("up")}}>
@@ -252,7 +263,7 @@ class Maze extends Component {
                         <ArrowForwardIcon style={{ fontSize: 80 }} className="arrowIcons" />
                     </button>
                 </div>
-            </div>
+            </>
         );
     }
 }

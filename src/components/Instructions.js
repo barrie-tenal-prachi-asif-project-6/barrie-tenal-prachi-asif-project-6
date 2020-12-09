@@ -11,7 +11,7 @@ class Instructions extends Component {
             userWish: ""
         }
     }
-    
+
     // Function for grabbing & storing the user's name
     enterUserName = (e) => {
         this.props.updateName(e.target.value);
@@ -103,20 +103,18 @@ class Instructions extends Component {
                 </form>
 
 
-                {/* Conditionally render the coin only when the submit event is completed */}
+                {/* Conditionally render the coin only when the submit event is completed (and, therefore, the adviceSlip Array has at least one object in it) */}
                 {
                     (this.props.adviceSlip.length === 0)?
                         null
                     :
                         <Link to="/maze">
                             <div className="coinButtonContainer">
-                                <button><img src="https://i.ibb.co/0Z6N088/goldCoin.png" alt="an image of a coin with a skull on it"/></button>
+                                <button><img src="https://i.ibb.co/0Z6N088/goldCoin.png" alt="a coin with a skull on it"/></button>
                                 <p>Click Me</p>
                             </div> 
                         </Link>
                 }
-                
-                
             </div>
         )
     }
