@@ -1,6 +1,6 @@
 header {
     animation: slideInLeft 1s ease;
-    min-height: 10vh;
+    min-height: 8vh;
     background-color: $fontPrimary;
     color: $fontSecondary;
     font-size: 5rem;
@@ -19,8 +19,8 @@ header {
         white-space: nowrap; 
         margin: 0 auto; 
         letter-spacing: .15em; 
-        animation: 
-            typing 1.5s steps(40, end),
+        text-transform: uppercase;
+        animation: typing 1.5s steps(40, end),
     }
 }
 
@@ -29,4 +29,3 @@ header {
     from { width: 0 }
     to { width: 100% }
 }
-

@@ -97,7 +97,13 @@ class Maze extends Component {
         this.moveCoin();
     }
 
-
+    coinBoxAnimation = () => {
+        const coin = document.querySelector('.coinImage');
+        const coinContainer = document.querySelector('.mazeCoinImageContainer');
+        coin.classList.add('coinDropAnimation');
+        coinContainer.classList.add('coinFadeAnimation');
+        // this.createMazeAndCoin();
+    }
 
 
 
@@ -225,34 +231,45 @@ class Maze extends Component {
 
     render() { 
         return (
-            <div className="MazeComponent">
-                <h2 onClick={this.createMazeAndCoin}> the maze is below, CLICK ME </h2>
-                <div className="maze"></div>
-                {
-                    (this.state.hasCoinCompletedMaze)
-                    ?
-                    <Link to="/results">
-                        <button>CLICK FOR RESULTS</button>
-                    </Link>
-                    : null
-                }
+            <>
+            <section className="mazeInstructionsAndImage wrapper">
+                <h2>Insert your coin to begin Zoltar's Maze of Wonder!</h2>
+                <figure  className="mazeCoinImageContainer">
+                    <img className="coinImage" src="https://i.ibb.co/0Z6N088/goldCoin.png" alt="a coin with a skull on it" onClick={this.coinBoxAnimation}/>
+                    <img className="coinSlotTop" src="https://i.ibb.co/t43gKMt/coin-Slot-Back.png" alt="coin slot tab" />
+                    <img className="coinSlot" src="https://i.ibb.co/QD0CYkf/coin-Slot-Front.png" alt="insert a coin in this box" />
+                </figure>
+                    {/* <figure className="coinBoxImageContainer">
+                    </figure> */}
+                <div className="maze">
+                    {
+                        (this.state.hasCoinCompletedMaze)
+                        ?
+                        <Link to="/results">
+                            <button>CLICK FOR RESULTS</button>
+                        </Link>
+                        : null
+                    }
+                </div>
+            </section>
+
                 <div className="arrowButtonsGrid">
                     <div className="buttonGridDivs"></div>
                     <button className="arrowButton upArrowButton" onClick={() => {this.handleArrowClick("up")}}>
-                        <ArrowUpwardIcon style={{ fontSize: 80 }} className="arrowIcons" />
+                        <ArrowUpwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
                     </button>
                     <div className="buttonGridDivs"></div>
                     <button className="arrowButton leftArrowButton" onClick={() => {this.handleArrowClick("left")}}>
-                        <ArrowBackIcon style={{ fontSize: 80 }} className="arrowIcons" />
+                        <ArrowBackIcon style={{ fontSize: 40 }} className="arrowIcons" />
                     </button>
                     <button className="arrowButton downArrowButton" onClick={() => {this.handleArrowClick("down")}}>
-                        <ArrowDownwardIcon style={{ fontSize: 80 }} className="arrowIcons" />
+                        <ArrowDownwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
                     </button>
                     <button className="arrowButton rightArrowButton" onClick={() => {this.handleArrowClick("right")}}>
-                        <ArrowForwardIcon style={{ fontSize: 80 }} className="arrowIcons" />
+                        <ArrowForwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
                     </button>
                 </div>
-            </div>
+            </>
         );
     }
 }
