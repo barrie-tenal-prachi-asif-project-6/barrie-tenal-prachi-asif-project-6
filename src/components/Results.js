@@ -15,7 +15,7 @@ class Results extends Component {
       <div className="Results">
         <ZoltarRedEyes />
         <div className="wishContainer wrapper">
-          <h3>{this.props.userName}, your wish has been granted! </h3>
+          <h2>{this.props.userName}, your wish has been granted! </h2>
           <p>
             {
               this.randomizer(this.props.adviceSlip)
