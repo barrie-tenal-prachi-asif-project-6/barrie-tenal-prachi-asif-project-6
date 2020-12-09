@@ -19,7 +19,7 @@ class App extends Component {
     };
   }
 
-  // Function to call API which will give us specific advice when user selects a specific category besides 'other'
+  // Function to call the API which will give us specific advice when user selects a specific category besides 'other'
   getSpecificAdvice = (recivedSelectedCategory) => {
     axios({
       url: `https://api.adviceslip.com/advice/search/${recivedSelectedCategory}`,
@@ -32,7 +32,7 @@ class App extends Component {
     });
   };
 
-  // Function to call API which will give us random advice when user selects category of 'other'
+  // Function to call the API which will give us random advice when user selects 'other' category
   getRandomAdvice = () => {
     axios({
       url: `https://api.adviceslip.com/advice?timestamp=${new Date().getTime()}`,
@@ -48,21 +48,30 @@ class App extends Component {
     });
   };
 
-  // updateName()
+  // Function to update the userName state with the user's inputted name
   updateName = (recievedUserName) => {
     this.setState({
       userName: recievedUserName
     }, console.log(this.state.userName))
   }
 
+  // Function to reset the adviceSlip array to an empty array when the user clicks on the the 'make another wish' button (this ensures that, when the user is routed back to the instructions/home page, the coin button used to progress from home to the maze is no longer rendered until the user resubmits the form)
+  emptyAdvice =()=>{
+    this.setState({
+      adviceSlip: []
+    })
+  }
+
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <>
           <Header />
           <main>
-            <Route exact path="/" component={Zoltar} />
-            {/* Passing the function to call the specific selected category to the child  */}
+            <Route 
+              exact path="/" 
+              component={Zoltar} 
+            />
             <Route
               exact
               path="/"
@@ -76,15 +85,18 @@ class App extends Component {
                   />
                 );
               }}
-              // selectedCategoryFunction = {this.setSelectedUserCategory}
             />
-            <Route path="/maze" component={Maze} />
+            <Route 
+              path="/maze" 
+              component={Maze} 
+            />
             <Route
               path="/results"
               render={() => {
                 return <Results 
                 adviceSlip={this.state.adviceSlip}
                 userName={this.state.userName} 
+                emptyAdvice={this.emptyAdvice}
                 />;
               }}
             />

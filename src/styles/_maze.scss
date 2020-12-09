@@ -56,9 +56,28 @@
 	}
 }
 
-.MazeComponent {
-    display: grid;
-    place-items: center;
+.mazeInstructionsAndImage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px blue;
+    .mazeCoinImageContainer {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        .coinImage {
+            position: absolute;
+            top: -20px;
+        }
+        .coinSlotTop, 
+        .coinSlot {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
 }
 
 .arrowButtonsGrid {

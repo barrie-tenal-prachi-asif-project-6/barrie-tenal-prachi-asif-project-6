@@ -27,7 +27,7 @@ class Results extends Component {
               }
             </p>
             <Link to="/">
-              <button className="resetWish">Make another wish</button>
+              <button className="resetWish" onClick={this.props.emptyAdvice}>Make another wish</button>
             </Link>
         </div>
       </div>
