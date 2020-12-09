@@ -89,6 +89,22 @@
         }
 }
 
+.coinButtonContainer {
+    margin-bottom: 40px;
+        button {
+            border: none;
+            background: transparent;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+        p {
+            margin: 2px 0 0 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+}
+
 // Corner image styling for both instruction and results
 .cornerImage {
     width: 80px;
