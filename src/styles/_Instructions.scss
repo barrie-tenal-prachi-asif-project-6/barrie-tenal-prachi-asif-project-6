@@ -1,5 +1,6 @@
 
 .instructionsFormContainer {
+    animation: slideInLeft 1s ease;
     background-color: $fontSecondary;
     border: 5px solid $fontPrimary;
     margin: 0 auto;
