@@ -56,12 +56,78 @@
 	}
 }
 
+.MazeComponent {
+    display: grid;
+    place-items: center;
+}
+
 .arrowButtonsGrid {
+    padding: 40px 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    .buttonGridDivs {
-        // height: 200px;
-        width: 200px;
-        // background-color: ;
+    grid-gap: 12.25px;
+    .arrowButton {
+        color: $fontSecondary;
+        font-weight: bold;
+        font-size: 2rem;
+        border: 2px solid $tertiaryColour;
+        border-radius: 10px;
+        padding: 5px 20px;
+        margin: 30px auto;
+        transition: all 0.3s ease-in;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+    .upArrowButton {
+        background: linear-gradient(
+            to top,
+            $tertiaryColour 50%,
+            $fontPrimary 50%
+        );
+        background-size: 100% 200%;
+        background-position: right top;
+        &:hover, &:focus {
+            cursor: pointer;
+            background-position: left bottom;
+        }
+    }
+    .leftArrowButton {
+        background: linear-gradient(
+            to left,
+            $tertiaryColour 50%,
+            $fontPrimary 50%
+        );
+        background-size: 200% 100%;
+        background-position: left top;
+        &:hover, &:focus {
+            cursor: pointer;
+            background-position: right bottom;
+        }
+    }
+    .downArrowButton {
+        background: linear-gradient(
+            to bottom,
+            $tertiaryColour 50%,
+            $fontPrimary 50%
+        );
+        background-size: 100% 200%;
+        background-position: right bottom;
+        &:hover, &:focus {
+            cursor: pointer;
+            background-position: left top;
+        }
+    }
+    .rightArrowButton {
+        background: linear-gradient(
+            to right,
+            $tertiaryColour 50%,
+            $fontPrimary 50%
+        );
+        background-size: 200% 100%;
+        background-position: right top;
+        &:hover, &:focus {
+            cursor: pointer;
+            background-position: left bottom;
+        }
     }
 }

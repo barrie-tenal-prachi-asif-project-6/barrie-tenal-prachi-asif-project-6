@@ -2,6 +2,10 @@
 /* eslint-disable default-case */
 import { Component } from 'react';
 import { Link } from 'react-router-dom'
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward'
+import ArrowBackIcon from '@material-ui/icons/ArrowBack'
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 
 class Maze extends Component {
@@ -94,6 +98,10 @@ class Maze extends Component {
     }
 
 
+
+
+
+
     // Function that moves the coin through the maze when the user uses up, down, left, and right arrows on their keyboard
     moveCoin = (event) => {
         const moveCoin = (event) => {
@@ -102,46 +110,20 @@ class Maze extends Component {
             this.state.maze[this.state.coinCurrentIndex].classList.remove('coin');
             
             switch (event.keyCode) {
-                // if user hits the left arrow key:
-                    // (a) check to see if the index number that is one below the coin's current index number (ie: check the value of the index number to the 'left' of the coin's current index number) is actually a path (ie: ensure it is not a wall)
-                    // (b) if above condition is satisfied, subtract one from the coin's current index number
                 case 37:
-                    if (this.state.maze[this.state.coinCurrentIndex -1].classList.contains('path'))
-                    this.setState({
-                        coinCurrentIndex: this.state.coinCurrentIndex -=1
-                    }) 
+                    this.moveLeft();
                     break
 
-                //  if user hits right arrow key:
-                    // (a) check to see if the index number that is one above the coin's current index number (ie: check the value of the index number to the 'right' of the coin's current index number) is actually a path
-                    // (b) if above condition is satisfied, add one to the coin's current index number
                 case 39:
-                    if (this.state.maze[this.state.coinCurrentIndex + 1].classList.contains('path')) 
-                    this.setState({
-                        coinCurrentIndex: this.state.coinCurrentIndex += 1
-                    }) 
+                    this.moveRight();
                     break
 
-                //  if user hits up arrow key:
-                    // (a) check to see if the coin is able to continue moving up (ie: ensure the coin's current index number subtracted by 28 is equal to or greater than 0 - because if it's less than 0 and the user hits the up arrow, the coin will disappear off of the top edge of the maze as this means the coin is currently located along the top edge of the maze (index # 0 to 27))
-                    // (b) check to see if the index number that is 28 below the coin's current index number (ie: check the value of the index number that is directly 'on top' of the coin's current index number) is actually a path
-                    // (c) if both above conditions are satisfied, subtract 28 from the coin's current index number (ie: the width/height of the maze)
                 case 38:
-                    if (this.state.coinCurrentIndex - 30 >= 0 && this.state.maze[this.state.coinCurrentIndex - 30].classList.contains('path')) 
-                    this.setState({
-                        coinCurrentIndex: this.state.coinCurrentIndex -= 30
-                    })
+                    this.moveUp();
                     break
 
-                //  if user hits down arrow key:
-                    // (a) check to see if the coin is able to continue moving down (ie: ensure that 28 added to the coin's current index number is less than 28*28 (784) - because if it's more than 784 and the user hits the down arrow, the coin will disappear off of the bottom edge of the maze as this means the coin is currently located along the bottom edge of the maze (index # 756 to 784))
-                    // (b) check to see if the index number that is 28 above the coin's current index number (ie: check the value of the index number that is directly 'beneath' of the coin's current index number) is actually a path
-                    // (c) if both above condition is satisfied, add 28 to the coin's current index number (ie: the width/height of the maze)
                 case 40:
-                    if (this.state.coinCurrentIndex + 30 < 30 * 30 && (this.state.maze[this.state.coinCurrentIndex + 30].classList.contains('path') || this.state.maze[this.state.coinCurrentIndex + 30].classList.contains('end'))) 
-                    this.setState({
-                        coinCurrentIndex: this.state.coinCurrentIndex += 30
-                    })
+                    this.moveDown();
                     break
 
             }
@@ -162,38 +144,26 @@ class Maze extends Component {
 
 
     // Function that moves the coin through the maze when the user uses up, down, left, and right buttons rendered on their browser's page
-        // For each direction, refer to the moveCoin() method's for a description of logic used
+        // For each direction, refer to the movement method's for a description of logic used
     handleArrowClick = (direction) => {
         this.state.maze[this.state.coinCurrentIndex].classList.remove("coin");
 
         switch (direction) {
             case "up":
-                if (this.state.coinCurrentIndex - 30 >= 0 && this.state.maze[this.state.coinCurrentIndex - 30].classList.contains('path')) 
-                this.setState({
-                    coinCurrentIndex: this.state.coinCurrentIndex -= 30
-                })
-            break
+                this.moveUp();
+                break
 
             case "right": 
-                if (this.state.maze[this.state.coinCurrentIndex + 1].classList.contains('path')) 
-                this.setState({
-                    coinCurrentIndex: this.state.coinCurrentIndex += 1
-                }) 
-            break
+                this.moveRight();
+                break
 
             case "down":
-                if (this.state.coinCurrentIndex + 30 < 30 * 30 && (this.state.maze[this.state.coinCurrentIndex + 30].classList.contains('path') || this.state.maze[this.state.coinCurrentIndex + 30].classList.contains('end'))) 
-                this.setState({
-                    coinCurrentIndex: this.state.coinCurrentIndex += 30
-                })
-            break
+                this.moveDown();
+                break
 
             case "left": 
-                if (this.state.maze[this.state.coinCurrentIndex -1].classList.contains('path'))
-                this.setState({
-                    coinCurrentIndex: this.state.coinCurrentIndex -=1
-                }) 
-            break
+                this.moveLeft();
+                break
         }
 
         this.state.maze[this.state.coinCurrentIndex].classList.add("coin");
@@ -206,9 +176,56 @@ class Maze extends Component {
     }
 
 
+    // function to move coin to the left
+    moveLeft = () => {
+        // if user hits the left arrow key:
+        // (a) check to see if the index number that is one below the coin's current index number (ie: check the value of the index number to the 'left' of the coin's current index number) is actually a path (ie: ensure it is not a wall)
+        // (b) if above condition is satisfied, subtract one from the coin's current index number
+        if (this.state.maze[this.state.coinCurrentIndex - 1].classList.contains('path'))
+            this.setState({
+                coinCurrentIndex: this.state.coinCurrentIndex -= 1
+            })
+    }
+
+    // function to move coint to the right
+    moveRight = () => {
+        //  if user hits right arrow key:
+        // (a) check to see if the index number that is one above the coin's current index number (ie: check the value of the index number to the 'right' of the coin's current index number) is actually a path
+        // (b) if above condition is satisfied, add one to the coin's current index number
+        if (this.state.maze[this.state.coinCurrentIndex + 1].classList.contains('path'))
+            this.setState({
+                coinCurrentIndex: this.state.coinCurrentIndex += 1
+            })
+    }
+
+    // function to move coint to up
+    moveUp = () => {
+        //  if user hits up arrow key:
+        // (a) check to see if the coin is able to continue moving up (ie: ensure the coin's current index number subtracted by 28 is equal to or greater than 0 - because if it's less than 0 and the user hits the up arrow, the coin will disappear off of the top edge of the maze as this means the coin is currently located along the top edge of the maze (index # 0 to 27))
+        // (b) check to see if the index number that is 28 below the coin's current index number (ie: check the value of the index number that is directly 'on top' of the coin's current index number) is actually a path
+        // (c) if both above conditions are satisfied, subtract 28 from the coin's current index number (ie: the width/height of the maze)
+        if (this.state.coinCurrentIndex - 30 >= 0 && this.state.maze[this.state.coinCurrentIndex - 30].classList.contains('path'))
+            this.setState({
+                coinCurrentIndex: this.state.coinCurrentIndex -= 30
+            })
+    }
+
+    // function to move coint to down
+    moveDown = () => {
+        //  if user hits down arrow key:
+        // (a) check to see if the coin is able to continue moving down (ie: ensure that 28 added to the coin's current index number is less than 28*28 (784) - because if it's more than 784 and the user hits the down arrow, the coin will disappear off of the bottom edge of the maze as this means the coin is currently located along the bottom edge of the maze (index # 756 to 784))
+        // (b) check to see if the index number that is 28 above the coin's current index number (ie: check the value of the index number that is directly 'beneath' of the coin's current index number) is actually a path
+        // (c) if both above condition is satisfied, add 28 to the coin's current index number (ie: the width/height of the maze)
+        if (this.state.coinCurrentIndex + 30 < 30 * 30 && (this.state.maze[this.state.coinCurrentIndex + 30].classList.contains('path') || this.state.maze[this.state.coinCurrentIndex + 30].classList.contains('end')))
+            this.setState({
+                coinCurrentIndex: this.state.coinCurrentIndex += 30
+            })
+    }
+
+
     render() { 
         return (
-            <>
+            <div className="MazeComponent">
                 <h2 onClick={this.createMazeAndCoin}> the maze is below, CLICK ME </h2>
                 <div className="maze"></div>
                 {
@@ -221,13 +238,21 @@ class Maze extends Component {
                 }
                 <div className="arrowButtonsGrid">
                     <div className="buttonGridDivs"></div>
-                    <button  onClick={() => {this.handleArrowClick("up")}}>UP</button>
+                    <button className="arrowButton upArrowButton" onClick={() => {this.handleArrowClick("up")}}>
+                        <ArrowUpwardIcon style={{ fontSize: 80 }} className="arrowIcons" />
+                    </button>
                     <div className="buttonGridDivs"></div>
-                    <button  onClick={() => {this.handleArrowClick("left")}}>LEFT</button>
-                    <button  onClick={() => {this.handleArrowClick("down")}}>DOWN</button>
-                    <button  onClick={() => {this.handleArrowClick("right")}}>RIGHT</button>
+                    <button className="arrowButton leftArrowButton" onClick={() => {this.handleArrowClick("left")}}>
+                        <ArrowBackIcon style={{ fontSize: 80 }} className="arrowIcons" />
+                    </button>
+                    <button className="arrowButton downArrowButton" onClick={() => {this.handleArrowClick("down")}}>
+                        <ArrowDownwardIcon style={{ fontSize: 80 }} className="arrowIcons" />
+                    </button>
+                    <button className="arrowButton rightArrowButton" onClick={() => {this.handleArrowClick("right")}}>
+                        <ArrowForwardIcon style={{ fontSize: 80 }} className="arrowIcons" />
+                    </button>
                 </div>
-            </>
+            </div>
         );
     }
 }

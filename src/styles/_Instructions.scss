@@ -1,59 +1,172 @@
-.instructionsFormContainer{
+.instructionsFormContainer {
     background-color: $fontSecondary;
     border: 5px solid $fontPrimary;
     margin: 0 auto;
-    padding: 15px;
+    padding: 10px 15px;
     width: 80%;
     box-shadow: 0 0 15px $fontPrimary;
-        img{
-            z-index: 999;
+    position: relative;
+    text-align: center;
+        .cornerImage {
+            width: 80px;
             position: absolute;
         }
+        .topLeftCornerImage {
+            top: 3px;
+            left: 3px;
+        }
+        .topRightCornerImage {
+            rotate: 90deg;
+            top: 3px;
+            right: 3px;
+        }
+        .bottomRightCornerImage {
+            rotate: 270deg;
+            bottom: 3px;
+            left: 3px;
+        }
+        .bottomLeftCornerImage {
+            rotate: 180deg;
+            bottom: 3px;
+            right: 3px;
+        }
         p {
-            margin-bottom: 30px;
+            margin: 30px 5px 35px 5px;
             line-height: 3rem;
+            padding: 0 10px;
         }
 }
 
-form {
-        .userNameInput input {
-            padding: 10px;
+.userNameInput {
+    width: 100%;
+        input {
+            padding: 10px 20px;
             width: 100%;
+            border: 1px solid $fontPrimary;
         }
-        .userSelectionOptions {
-            display: flex;
-            flex-wrap: wrap;
-                label {
-                    font-size: 1.5rem;
-                    text-transform: uppercase;
-                    text-align: center;
-                    background-color: $secondaryColour;
-                    color: $fontSecondary;
-                    border: 2px solid $fontPrimary;
-                    width: calc(100%);
-                    padding: 15px 0;
-                    margin-top: 40px;
-                    transition: 0.3s all;
-                    cursor: pointer;
-                        &:hover,
-                        &:active,
-                        &:focus {
-                            background-color: $tertiaryColour;
-                        }
-                }
-                input[type=radio] {
-                    position: absolute;
-                    opacity: 0;
-                        &:checked + label {
-                            background-color: $primaryColour;
-                            font-weight: 700;
-                        }
+}
+
+.userSelectionOptions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+        label {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            text-align: center;
+            background-color: $secondaryColour;
+            color: $fontSecondary;
+            border: 2px solid $fontPrimary;
+            width: calc(100%);
+            padding: 15px 10px;
+            margin-top: 40px;
+            transition: 0.3s all;
+            cursor: pointer;
+                &:hover,
+                &:active,
+                &:focus {
+                    background-color: $primaryColour;
                 }
         }
-        .userWishInput textarea {
-            margin: 40px 0 20px 0;
-            padding: 10px;
-            width: 100%;
-            resize: none;
+        input[type=radio] {
+            position: absolute;
+            opacity: 0;
+                &:checked + label {
+                    background-color: $primaryColour;
+                    font-weight: 700;
+                }
         }
+}
+
+.userWishInput textarea {
+    margin: 40px 0;
+    padding: 20px;
+    width: 100%;
+    resize: none;
+    border: 1px solid $fontPrimary;
+    line-height: 2.8rem;
+}
+
+.formSubmitButton {
+    margin-bottom: 80px;
+    font-size: 2.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: $fontSecondary;
+    background-color: $fontPrimary;
+    border: 3px solid $fontPrimary;
+    box-shadow: 0 0 5px $fontPrimary;
+    width: calc(100%);
+    padding: 15px 10px;
+    transition: 0.3s all;
+    cursor: pointer;
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $tertiaryColour;
+            color: $fontPrimary;
+        }
+}
+
+
+/* ------------------- MEDIA QUERIES ------------------- */
+/* MAJOR BREAKPOINT 1: portrait tablet & landscape phone */
+@media (min-width: 480px) {
+    .formSubmitButton {
+        margin-bottom: 40px;
+    }
+
+    .userNameInput input,
+    .userWishInput textarea,
+    .formSubmitButton {
+        width: 85%;
+    }
+
+    .userSelectionOptions{
+        label {
+            margin: 40px 5px 0 5px;
+            width: calc(100% / 2 - 10px);
+        }
+    }
+}
+
+/* MAJOR BREAKPOINT 2: small desktop & portrait tablet */
+@media (min-width: 768px) {
+    .userNameInput input,
+    .userWishInput textarea,
+    .formSubmitButton {
+        width: 70%;
+    }
+
+    .userSelectionOptions{
+        label {
+            margin: 40px 5px 0 5px;
+            width: calc(100% / 3 - 10px);
+        }
+    }
+}
+
+/* MAJOR BREAKPOINT 3: desktops & laptops */
+@media (min-width: 940px) {
+    .instructionsFormContainer {
+        padding: 50px 75px;
+            p {
+                font-size: 2.5rem;
+            }
+    }
+}
+
+/* MAJOR BREAKPOINT 4: larger desktops & up */
+@media (min-width: 1224px) {
+    .instructionsFormContainer {
+        padding: 50px 90px;
+    }
+
+    .userNameInput input,
+    .userWishInput textarea,
+    .formSubmitButton {
+        width: 50%;
+    }
 }

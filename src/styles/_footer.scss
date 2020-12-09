@@ -1,4 +1,12 @@
 footer {
     min-height: 5vh;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $fontPrimary;
+    color: $fontSecondary;
+        a {
+            font-style: italic;
+            opacity: 0.7;
+        }
 }

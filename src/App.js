@@ -10,8 +10,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './styles/App.scss';
 
 
-
-
 class App extends Component {
   constructor() {
     super();
@@ -62,47 +60,40 @@ class App extends Component {
       <Router>
         <>
           <Header />
-          <Route exact path="/" component={Zoltar} />
-          {/* Passing the function to call the specific selected category to the child  */}
-          <Route
-            exact
-            path="/"
-            render={() => {
-              return (
-                <Instructions
-                  getSpecificAdvice={this.getSpecificAdvice}
-                  getRandomAdvice={this.getRandomAdvice}
-                  adviceSlip={this.state.adviceSlip}
-                  updateName={this.updateName}
-                />
-              );
-            }}
-          // selectedCategoryFunction = {this.setSelectedUserCategory}
-          />
-          <Route path="/maze" component={Maze} />
-          <Route
-            path="/results"
-            render={() => {
-              return <Results
+          <main>
+            <Route exact path="/" component={Zoltar} />
+            {/* Passing the function to call the specific selected category to the child  */}
+            <Route
+              exact
+              path="/"
+              render={() => {
+                return (
+                  <Instructions
+                    getSpecificAdvice={this.getSpecificAdvice}
+                    getRandomAdvice={this.getRandomAdvice}
+                    adviceSlip={this.state.adviceSlip}
+                    updateName={this.updateName}
+                  />
+                );
+              }}
+              // selectedCategoryFunction = {this.setSelectedUserCategory}
+            />
+            <Route path="/maze" component={Maze} />
+            <Route
+              path="/results"
+              render={() => {
+                return <Results 
                 adviceSlip={this.state.adviceSlip}
-                userName={this.state.userName}
-              />;
-            }}
-          />
+                userName={this.state.userName} 
+                />;
+              }}
+            />
+          </main>
           <Footer />
         </>
       </Router>
     );
   }
 }
+
 export default App;
-
-
- // if user selects 'other' wish category, then use the API response from axios within the componentDidMount (which gets random advice)
-  // else, trigger a new API call, passing the selected user category in as an argument (which gets specific/related advice)
-
-
-  // IMPORTANT: need to check with the instructor if user selection can be updated in the child component , setting in the parent and changing in the call. 
-
-  // we need to add "random advice" function if the "selectedCategory" is "other" when calling the other child object Wish.
-
