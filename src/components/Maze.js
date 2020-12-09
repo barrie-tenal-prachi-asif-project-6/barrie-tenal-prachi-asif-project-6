@@ -225,17 +225,17 @@ class Maze extends Component {
                 }
                 <div className="arrowButtonsGrid">
                     <div className="buttonGridDivs"></div>
-                    <button className="upArrowButton" onClick={() => {this.handleArrowClick("up")}}>
+                    <button className="arrowButton upArrowButton" onClick={() => {this.handleArrowClick("up")}}>
                         <ArrowUpwardIcon style={{ fontSize: 80 }} className="arrowIcons" />
                     </button>
                     <div className="buttonGridDivs"></div>
-                    <button className="leftArrowButton" onClick={() => {this.handleArrowClick("left")}}>
+                    <button className="arrowButton leftArrowButton" onClick={() => {this.handleArrowClick("left")}}>
                         <ArrowBackIcon style={{ fontSize: 80 }} className="arrowIcons" />
                     </button>
-                    <button className="downArrowButton" onClick={() => {this.handleArrowClick("down")}}>
+                    <button className="arrowButton downArrowButton" onClick={() => {this.handleArrowClick("down")}}>
                         <ArrowDownwardIcon style={{ fontSize: 80 }} className="arrowIcons" />
                     </button>
-                    <button className="rightArrowButton" onClick={() => {this.handleArrowClick("right")}}>
+                    <button className="arrowButton rightArrowButton" onClick={() => {this.handleArrowClick("right")}}>
                         <ArrowForwardIcon style={{ fontSize: 80 }} className="arrowIcons" />
                     </button>
                 </div>
