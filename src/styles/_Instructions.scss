@@ -152,13 +152,16 @@
 @media (min-width: 940px) {
     .instructionsFormContainer {
         padding: 50px 75px;
+            p {
+                font-size: 2.5rem;
+            }
     }
 }
 
 /* MAJOR BREAKPOINT 4: larger desktops & up */
 @media (min-width: 1224px) {
     .instructionsFormContainer {
-        padding: 50px 100px;
+        padding: 50px 90px;
     }
 
     .userNameInput input,
