@@ -1,5 +1,6 @@
 @media (min-width: 320px){
     .wishContainer {
+        animation: slideInLeft 1s ease;
         text-align: center;
         background-color: $fontSecondary;
         border: 5px solid $fontPrimary;
@@ -46,6 +47,12 @@
     .wishContainer {
         h2 {
             font-size: 4.5rem;
+            overflow: hidden; 
+            white-space: nowrap; 
+            margin: 0 auto; 
+            letter-spacing: .15em; 
+            animation: 
+                typing 3s steps(40, end),
         }
 
         p {
@@ -61,4 +68,9 @@
             }
         }
     }
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
 }

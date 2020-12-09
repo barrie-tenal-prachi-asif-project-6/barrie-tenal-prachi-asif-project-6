@@ -4,7 +4,9 @@ export default class Header extends Component {
     render() {
         return (
             <header>
-                <h1>Zoltar Speaks</h1>
+                <div className="constrainH1">
+                    <h1>Zoltar Speaks</h1>
+                </div>
             </header>
         );
     }
