@@ -31,18 +31,11 @@
             right: 3px;
         }
         p {
-            margin: 30px 0 35px 0;
+            margin: 30px 5px 35px 5px;
             line-height: 3rem;
             padding: 0 10px;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
 }
-
 
 .userNameInput {
     width: 100%;
@@ -56,6 +49,8 @@
 .userSelectionOptions {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
         label {
             font-size: 1.5rem;
             text-transform: uppercase;
@@ -95,7 +90,7 @@
 
 .formSubmitButton {
     margin-bottom: 80px;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -111,27 +106,50 @@
         &:active,
         &:focus {
             background-color: $tertiaryColour;
+            color: $fontPrimary;
         }
 }
 
 
 /* ------------------- MEDIA QUERIES ------------------- */
-/* MAJOR BREAKPOINT 1: desktops & laptops */
-@media (min-width: 1224px) {
+/* MAJOR BREAKPOINT 1: portrait tablet & landscape phone */
+@media (min-width: 480px) {
+    .userNameInput input,
+    .userWishInput textarea,
+    .formSubmitButton {
+        width: 85%;
+    }
 
+    .userSelectionOptions{
+        label {
+            margin: 40px 5px 0 5px;
+            width: calc(100% / 2 - 10px);
+        }
+    }
 }
 
 /* MAJOR BREAKPOINT 2: small desktop & portrait tablet */
+@media (min-width: 768px) {
+    .userNameInput input,
+    .userWishInput textarea,
+    .formSubmitButton {
+        width: 70%;
+    }
+
+    .userSelectionOptions{
+        label {
+            margin: 40px 5px 0 5px;
+            width: calc(100% / 3 - 10px);
+        }
+    }
+}
+
+/* MAJOR BREAKPOINT 3: desktops & laptops */
 @media (min-width: 940px) {
 
 }
 
-/* MAJOR BREAKPOINT 3: portrait tablet & landscape phone */
-@media (min-width: 768px) {
-
-}
-
-/* MAJOR BREAKPOINT 4: landscape phone & down */
-@media (min-width: 480px) {
+/* MAJOR BREAKPOINT 4: larger desktops & up */
+@media (min-width: 1300px) {
 
 }
