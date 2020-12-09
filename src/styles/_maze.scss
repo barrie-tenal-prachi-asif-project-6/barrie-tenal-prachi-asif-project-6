@@ -112,15 +112,14 @@
     padding: 40px 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 12.25px;
+    grid-gap: 5px;
     .arrowButton {
         color: $fontSecondary;
         font-weight: bold;
         font-size: 2rem;
         border: 2px solid $tertiaryColour;
         border-radius: 10px;
-        padding: 5px 20px;
-        margin: 30px auto;
+        padding: 5px;
         transition: all 0.3s ease-in;
         text-transform: uppercase;
         text-decoration: none;
