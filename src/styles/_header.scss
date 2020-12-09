@@ -1,4 +1,5 @@
 header {
+    animation: slideInLeft 1s ease;
     min-height: 10vh;
     background-color: $fontPrimary;
     color: $fontSecondary;
@@ -6,8 +7,24 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.constrainH1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     h1 {
+        overflow: hidden; 
+        white-space: nowrap; 
+        margin: 0 auto; 
+        letter-spacing: .15em; 
         text-transform: uppercase;
+        animation: typing 1.5s steps(40, end),
     }
 }
 
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}

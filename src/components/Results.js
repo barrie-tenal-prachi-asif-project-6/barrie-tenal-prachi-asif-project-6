@@ -17,8 +17,9 @@ class Results extends Component {
         <div className="wishContainer wrapper">
           <img className="cornerImage topLeftCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
           <img className="cornerImage topRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
-          <img className="cornerImage bottomRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
           <img className="cornerImage bottomLeftCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
+          <img className="cornerImage bottomRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
+
             <h2>{this.props.userName}, your wish has been granted! </h2>
             <p>
               {
@@ -26,7 +27,7 @@ class Results extends Component {
               }
             </p>
             <Link to="/">
-              <button className="resetWish">Make another wish</button>
+              <button className="resetWish" onClick={this.props.emptyAdvice}>Make another wish</button>
             </Link>
         </div>
       </div>

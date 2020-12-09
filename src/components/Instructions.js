@@ -11,7 +11,7 @@ class Instructions extends Component {
             userWish: ""
         }
     }
-    
+
     // Function for grabbing & storing the user's name
     enterUserName = (e) => {
         this.props.updateName(e.target.value);
@@ -50,8 +50,8 @@ class Instructions extends Component {
             <div className="wrapper instructionsFormContainer">
                 <img className="cornerImage topLeftCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird"/>
                 <img className="cornerImage topRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
-                <img className="cornerImage bottomRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
                 <img className="cornerImage bottomLeftCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
+                <img className="cornerImage bottomRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
 
                 <section className="zoltarInstructions">
                     <p>
@@ -103,17 +103,18 @@ class Instructions extends Component {
                 </form>
 
 
-                {/* Conditionally render the coin only when the submit event is completed */}
+                {/* Conditionally render the coin only when the submit event is completed (and, therefore, the adviceSlip Array has at least one object in it) */}
                 {
                     (this.props.adviceSlip.length === 0)?
                         null
                     :
                         <Link to="/maze">
-                            <button>COIN</button>
+                            <div className="coinButtonContainer">
+                                <button><img src="https://i.ibb.co/0Z6N088/goldCoin.png" alt="a coin with a skull on it"/></button>
+                                <p>Click Me</p>
+                            </div> 
                         </Link>
                 }
-                
-                
             </div>
         )
     }
