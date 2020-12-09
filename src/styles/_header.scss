@@ -1,9 +1,11 @@
 header {
+    min-height: 10vh;
     background-color: $fontPrimary;
     color: $fontSecondary;
     font-size: 5rem;
-    text-align: center;
-    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     h1 {
         text-transform: uppercase;
     }
