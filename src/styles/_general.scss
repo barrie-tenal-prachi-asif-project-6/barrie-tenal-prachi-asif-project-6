@@ -11,6 +11,7 @@ body{
 }
 
 main {
-    min-height: 87vh;
+    min-height: calc(87vh - 2px);
     padding-bottom: 40px;
+    overflow-y: scroll;
 }

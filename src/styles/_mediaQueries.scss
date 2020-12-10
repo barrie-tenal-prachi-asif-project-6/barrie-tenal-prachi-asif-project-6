@@ -82,29 +82,8 @@
 }
 
 
-/* MINOR BREAKPOINT 1 */
-@media (min-width: 1024px) {
-    // MAZE
-    .arrowButtonsGrid {
-        display: none;
-    }
-}
-
-
-/* MINOR BREAKPOINT 2 */
-@media only screen and (min-width: 1100px) {
-    .wishContainer h2 {
-        overflow: hidden; 
-        white-space: nowrap; 
-        margin: 0 auto; 
-        animation: 
-            typing 3s steps(40, end),
-    }
-}
-
-
 /* MAJOR BREAKPOINT 4: larger desktops & up */
-@media (min-width: 1224px) {
+@media (min-width: 1220px) {
     // INSTRUCTIONS
     .instructionsFormContainer {
         padding: 50px 90px;
@@ -114,5 +93,19 @@
     .userWishInput textarea,
     .formSubmitButton {
         width: 50%;
+    }
+
+    // MAZE
+    .arrowButtonsGrid {
+        display: none;
+    }
+
+    // RESULTS
+    .wishContainer h2 {
+        overflow: hidden; 
+        white-space: nowrap; 
+        margin: 0 auto; 
+        animation: 
+            typing 3s steps(40, end),
     }
 }
