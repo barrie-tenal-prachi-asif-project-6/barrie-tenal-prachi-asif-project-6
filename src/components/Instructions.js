@@ -19,7 +19,6 @@ class Instructions extends Component {
 
     // Function for grabbing & storing the user's wish description
     enterUserWish = (e) => {
-        console.log(e.target.value);
         this.setState({
             userWish: e.target.value
         })
@@ -27,7 +26,6 @@ class Instructions extends Component {
 
     // Function for grabbing & storing the user's wish category
     handleSelect = (e) => {
-        console.log(e.target.id)
         this.setState({
             selectedCategory: e.target.id
         })

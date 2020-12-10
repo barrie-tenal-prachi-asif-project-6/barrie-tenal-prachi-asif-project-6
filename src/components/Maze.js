@@ -14,7 +14,8 @@ class Maze extends Component {
         this.state = {
             maze: [],
             hasCoinCompletedMaze: false,
-            coinCurrentIndex: 32
+            coinCurrentIndex: 32,
+            areArrowButtonsVisible: false
         };
     }
 
@@ -109,9 +110,10 @@ class Maze extends Component {
         // display coin in the maze
         mazeSquares[this.state.coinCurrentIndex].classList.add('coin');
 
-        // update the maze state with the new mazeSquares array
+        // update the maze state with the new mazeSquares array & make the arrow buttons visible by setting the areArrowButtonsVisible state to true
         this.setState({
-            maze: mazeSquares
+            maze: mazeSquares,
+            areArrowButtonsVisible: true
         })
 
         // call the function that allows the user to move the coin around the maze
@@ -143,7 +145,6 @@ class Maze extends Component {
                 case 40:
                     this.moveDown();
                     break
-
             }
 
             // add the coin class to the coin's new index
@@ -257,6 +258,7 @@ class Maze extends Component {
 
                 
                 <div className="maze">
+                    {/* conditionally render the results button only when the user as navigated the coin to the end of the maze */}
                     {
                         (this.state.hasCoinCompletedMaze)
                         ?
@@ -265,24 +267,30 @@ class Maze extends Component {
                         </Link>
                         : null
                     }
-                </div>
-                <div className="arrowButtonsContainer">
-                    <div className="arrowButtonsGrid">
-                        <div className="buttonGridDivs"></div>
-                        <button className="arrowButton upArrowButton" onClick={() => {this.handleArrowClick("up")}}>
-                            <ArrowUpwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
-                        </button>
-                        <div className="buttonGridDivs"></div>
-                        <button className="arrowButton leftArrowButton" onClick={() => {this.handleArrowClick("left")}}>
-                            <ArrowBackIcon style={{ fontSize: 40 }} className="arrowIcons" />
-                        </button>
-                        <button className="arrowButton downArrowButton" onClick={() => {this.handleArrowClick("down")}}>
-                            <ArrowDownwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
-                        </button>
-                        <button className="arrowButton rightArrowButton" onClick={() => {this.handleArrowClick("right")}}>
-                            <ArrowForwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
-                        </button>
-                    </div>
+                    {/* conditionally render the arrow buttons only when the maze appears */}
+                    {
+                        (this.state.areArrowButtonsVisible)
+                        ?
+                        <div className="arrowButtonsContainer">
+                            <div className="arrowButtonsGrid">
+                                <div className="buttonGridDivs"></div>
+                                <button className="arrowButton upArrowButton" onClick={() => {this.handleArrowClick("up")}}>
+                                    <ArrowUpwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
+                                </button>
+                                <div className="buttonGridDivs"></div>
+                                <button className="arrowButton leftArrowButton" onClick={() => {this.handleArrowClick("left")}}>
+                                    <ArrowBackIcon style={{ fontSize: 40 }} className="arrowIcons" />
+                                </button>
+                                <button className="arrowButton downArrowButton" onClick={() => {this.handleArrowClick("down")}}>
+                                    <ArrowDownwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
+                                </button>
+                                <button className="arrowButton rightArrowButton" onClick={() => {this.handleArrowClick("right")}}>
+                                    <ArrowForwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
+                                </button>
+                            </div>
+                        </div>
+                        : null
+                    }
                 </div>
             </section>
             </>

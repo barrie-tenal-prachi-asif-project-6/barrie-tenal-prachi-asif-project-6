@@ -113,11 +113,11 @@
 }
 
 .coinFadeAnimation {
-    animation: fadeOut 1s ease-in 4s forwards;
+    animation: fadeOut 1s ease-in 2.5s forwards;
 }
 
 .mazeFadeAnimation {
-    animation: mazeFade 1s ease-in 4s forwards;
+    animation: mazeFade 1s ease-in 3s forwards;
 }
 
 @keyframes mazeFade {
@@ -140,9 +140,10 @@
     padding: 15px 30px;
     margin-top: 20px;
     transition: 0.3s all;
+    width: 90%;
     z-index: 100;
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
@@ -156,12 +157,20 @@
 
 
 // arrow buttons styling
+.arrowButtonsContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .arrowButtonsGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5px;
     width: 200px;
     min-height: 123px;
+    margin-top: 30px;
+    position: absolute;
+    left: 0;
         .arrowButton {
             color: $fontSecondary;
             font-weight: bold;
@@ -225,9 +234,4 @@
                     background-position: left bottom;
                 }
         }
-}
-
-.arrowButtonsContainer {
-    display: flex;
-    justify-content: center;
 }
