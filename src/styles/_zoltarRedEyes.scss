@@ -1,20 +1,16 @@
-
 .zoltarRedEyes {
     position: absolute;
     opacity: 0;
     animation: redEyes 1.4s linear infinite;
 }
+
 .zoltarRedEyesMouth {
     position: absolute;
     z-index: 10;
     top: 0px;
     left: 0;
     animation: movingMouthResults 1.5s linear forwards;
-    // animation-duration: 2s;
-    // animation-iteration-count: infinite;
-    // animation-timing-function: linear;
 }
-
 
 @keyframes movingMouthResults {
     0% {top: 0px;}

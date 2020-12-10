@@ -1,28 +1,25 @@
-
-    .wishContainer {
-        animation: slideInLeft 1s ease;
-        text-align: center;
-        background-color: $fontSecondary;
-        border: 5px solid $fontPrimary;
-        margin: 0 auto;
-        padding: 25px;
-        width: 80%;
-        box-shadow: 0 0 15px $fontPrimary;
-        position: relative;
+.wishContainer {
+    animation: slideInLeft 1s ease;
+    text-align: center;
+    background-color: $fontSecondary;
+    border: 5px solid $fontPrimary;
+    margin: 0 auto;
+    padding: 25px;
+    width: 80%;
+    box-shadow: 0 0 15px $fontPrimary;
+    position: relative;
         h2 {
             font-family: $headingFont;
             font-size: 2.5rem;
             padding: 10px;
             text-transform: capitalize;
         }
-
         p {
             font-family: $bodyFont;
             font-size: 2rem;
             padding: 20px 10px;
             margin-bottom: 20px;
         }
-
         .resetWish {
             font-family: $headingFont;
             font-size: 2rem;
@@ -44,43 +41,4 @@
                     color: $fontPrimary;
                 }
         }
-    }
-
-
-
-@media (min-width: 768px){
-    .wishContainer {
-        h2 {
-            font-size: 4.5rem;
-        }
-
-        p {
-            font-size: 2.5rem;
-            padding: 40px 10px;
-        }
-
-        .resetWish {
-            font-size: 2.5rem;
-            padding: 15px 30px;
-            &:hover{
-                background-color: $tertiaryColour;
-                color: $fontPrimary;
-            }
-        }
-    }
-}
-
-@media only screen and (min-width: 1100px) {
-    .wishContainer h2 {
-        overflow: hidden; 
-        white-space: nowrap; 
-        margin: 0 auto; 
-        animation: 
-            typing 3s steps(40, end),
-    }
-}
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
 }

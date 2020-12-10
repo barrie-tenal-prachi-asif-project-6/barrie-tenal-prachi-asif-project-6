@@ -1,2 +1,118 @@
-// DO THIS SHIT
-// mobile first
+/* MAJOR BREAKPOINT 1: portrait tablet & landscape phone */
+@media (min-width: 480px) {
+    // HEADER
+    h1 {
+        font-size: 4rem;
+    }
+
+    // INSTRUCTIONS
+    .formSubmitButton {
+        margin-bottom: 40px;
+    }
+
+    .userNameInput input,
+    .userWishInput textarea,
+    .formSubmitButton {
+        width: 85%;
+    }
+
+    .userSelectionOptions{
+        label {
+            margin: 40px 5px 0 5px;
+            width: calc(100% / 2 - 10px);
+        }
+    }
+}
+
+
+/* MAJOR BREAKPOINT 2: small desktop & portrait tablet */
+@media (min-width: 768px) {
+    // HEADER
+    h1 {
+        font-size: 6rem;
+    }
+
+    // INSTRUCTIONS
+    .userNameInput input,
+    .userWishInput textarea,
+    .formSubmitButton {
+        width: 70%;
+    }
+
+    .userSelectionOptions {
+        label {
+            margin: 40px 5px 0 5px;
+            width: calc(100% / 3 - 10px);
+        }
+    }
+
+    // RESULTS
+    .wishContainer {
+        h2 {
+            font-size: 4.5rem;
+        }
+
+        p {
+            font-size: 2.5rem;
+            padding: 40px 10px;
+        }
+
+        .resetWish {
+            font-size: 2.5rem;
+            padding: 15px 30px;
+            margin-bottom: 10px;
+            &:hover{
+                background-color: $tertiaryColour;
+                color: $fontPrimary;
+            }
+        }
+    }
+}
+
+
+/* MAJOR BREAKPOINT 3: desktops & laptops */
+@media (min-width: 940px) {
+    // INSTRUCTIONS
+    .instructionsFormContainer {
+        padding: 50px 75px;
+            p {
+                font-size: 2.5rem;
+            }
+    }
+}
+
+
+/* MINOR BREAKPOINT 1 */
+@media (min-width: 1024px) {
+    // MAZE
+    .arrowButtonsGrid {
+        display: none;
+    }
+}
+
+
+/* MINOR BREAKPOINT 2 */
+@media only screen and (min-width: 1100px) {
+    .wishContainer h2 {
+        overflow: hidden; 
+        white-space: nowrap; 
+        margin: 0 auto; 
+        animation: 
+            typing 3s steps(40, end),
+    }
+}
+
+
+/* MAJOR BREAKPOINT 4: larger desktops & up */
+@media (min-width: 1224px) {
+    // INSTRUCTIONS
+    .instructionsFormContainer {
+        padding: 50px 90px;
+    }
+
+    .userNameInput input,
+    .userWishInput textarea,
+    .formSubmitButton {
+        width: 50%;
+    }
+}

@@ -52,7 +52,7 @@ class App extends Component {
   updateName = (recievedUserName) => {
     this.setState({
       userName: recievedUserName
-    }, console.log(this.state.userName))
+    })
   }
 
   // Function to reset the adviceSlip array to an empty array when the user clicks on the the 'make another wish' button (this ensures that, when the user is routed back to the instructions/home page, the coin button used to progress from home to the maze is no longer rendered until the user resubmits the form)
@@ -97,7 +97,7 @@ class App extends Component {
                 adviceSlip={this.state.adviceSlip}
                 userName={this.state.userName} 
                 emptyAdvice={this.emptyAdvice}
-                getRandomAdvice = {this.getSpecificAdvice}
+                getRandomAdvice={this.getRandomAdvice}
                 />;
               }}
             />
