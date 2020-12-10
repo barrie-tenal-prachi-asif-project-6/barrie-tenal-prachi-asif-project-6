@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 
 class Results extends Component {
 
-  randomizer = (array) => {
-    // store a generated random integer which does not exceed the length of the array
-    const randomNumber = Math.floor(Math.random() * array.length);
-    return array[randomNumber].advice;
-  }
+
+  // randomizer = (array) => {
+  //   // store a generated random integer which does not exceed the length of the array
+  //   const randomNumber = Math.floor(Math.random() * array.length);
+  //   return array[randomNumber].advice;
+  // }
 
   render() { 
     return (
@@ -19,6 +20,13 @@ class Results extends Component {
           <img className="cornerImage topRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
           <img className="cornerImage bottomLeftCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
           <img className="cornerImage bottomRightCornerImage" src="https://i.ibb.co/C5yk8W2/corner.png" alt="a decorative corner drawing of an abstract bird" />
+
+           {
+             (!this.props.adviceSlip) ?
+              <div>
+                <h2>Your wish has been granted! </h2>
+                </div>
+           }
 
             <h2>{this.props.userName}, your wish has been granted! </h2>
             <p>

@@ -97,6 +97,7 @@ class App extends Component {
                 adviceSlip={this.state.adviceSlip}
                 userName={this.state.userName} 
                 emptyAdvice={this.emptyAdvice}
+                getRandomAdvice = {this.getSpecificAdvice}
                 />;
               }}
             />
