@@ -54,9 +54,7 @@ class Instructions extends Component {
                 <img className="cornerImage bottomRightCornerImage" src="https://i.ibb.co/BNKzc4S/bottom-Right-Corner.png" alt="a decorative corner drawing of an abstract bird" />
 
                 <section className="zoltarInstructions">
-                    <p>
-                        Zoltar speaks! Tell him your name, choose a category, and give a brief description of what you wish to learn. If you can navigate your coin through Zoltar's maze, he will grant you the advice you seek!
-                    </p>
+                    <p> Zoltar speaks! Tell him your name, choose a category, and give a brief description of what you wish to learn. If you can navigate your coin through Zoltar's maze, he will grant you the advice you seek! </p>
                 </section>
 
                 <form onSubmit={this.handleSubmit}>
@@ -105,15 +103,15 @@ class Instructions extends Component {
 
                 {/* Conditionally render the coin only when the submit event is completed (and, therefore, the adviceSlip Array has at least one object in it) */}
                 {
-                    (this.props.adviceSlip.length === 0)?
-                        null
+                    (this.props.adviceSlip.length === 0)
+                    ? null
                     :
-                        <Link to="/maze">
-                            <div className="coinButtonContainer">
-                                <button><img src="https://i.ibb.co/0Z6N088/goldCoin.png" alt="a coin with a skull on it"/></button>
-                                <p>Click Me</p>
-                            </div> 
-                        </Link>
+                    <Link to="/maze">
+                        <div className="coinButtonContainer">
+                            <button><img src="https://i.ibb.co/0Z6N088/goldCoin.png" alt="a coin with a skull on it"/></button>
+                            <p>Click Me</p>
+                        </div> 
+                    </Link>
                 }
             </div>
         )

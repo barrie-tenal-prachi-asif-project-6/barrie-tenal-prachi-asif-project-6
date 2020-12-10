@@ -19,6 +19,27 @@ class Maze extends Component {
     }
 
 
+
+    // Function that initiates coin animation when user clicks the coin to insert it into the slot
+    coinBoxAnimation = () => {
+        const coin = document.querySelector('.coinImage');
+        const coinContainer = document.querySelector('.mazeCoinImageContainer');
+        const maze = document.querySelector('.maze');
+        const mazeInstructions = document.querySelector('.mazeInstructions');
+
+        mazeInstructions.classList.add('coinFadeAnimation');
+
+        // adding the animation classes to the coin (coin falls into the slot & then fades out)
+        coin.classList.add('coinDropAnimation');
+        coinContainer.classList.add('coinFadeAnimation');
+
+        // adding animation class to the maze (maze fades in)
+        maze.classList.add('mazeFadeAnimation');
+        this.createMazeAndCoin();
+    }
+
+
+
     // Function that builds the maze & displays both the maze & coin onto the users page
     createMazeAndCoin = () => {
         // BUILDING MAZE ----------------------------------------
@@ -99,28 +120,6 @@ class Maze extends Component {
 
 
 
-
-    // Function that initiates coin animation when user clicks the coin
-    coinBoxAnimation = () => {
-        const coin = document.querySelector('.coinImage');
-        const coinContainer = document.querySelector('.mazeCoinImageContainer');
-        const maze = document.querySelector('.maze');
-        const mazeInstructions = document.querySelector('.mazeInstructions');
-        
-        mazeInstructions.classList.add('coinFadeAnimation');
-
-        // adding the animation classes to the coin (coin falls into the slot & then fades out)
-        coin.classList.add('coinDropAnimation');
-        coinContainer.classList.add('coinFadeAnimation');
-
-        // adding animation class to the maze (maze fades in)
-        maze.classList.add('mazeFadeAnimation');
-        this.createMazeAndCoin();
-    }
-
-
-
-
     // Function that moves the coin through the maze when the user uses up, down, left, and right arrows on their keyboard
     moveCoin = (event) => {
         const moveCoin = (event) => {
@@ -162,8 +161,9 @@ class Maze extends Component {
     }
 
 
+
     // Function that moves the coin through the maze when the user uses up, down, left, and right buttons rendered on their browser's page
-        // For each direction, refer to the movement method's for a description of logic used
+        // Refer to the moveCoin, moveLeft, moveRight, moveUp, and moveDown functions for a description of logic used
     handleArrowClick = (direction) => {
         this.state.maze[this.state.coinCurrentIndex].classList.remove("coin");
 
@@ -195,7 +195,8 @@ class Maze extends Component {
     }
 
 
-    // function to move coin to the left
+
+    // Function to move coin to the left
     moveLeft = () => {
         // if user hits the left arrow key:
         // (a) check to see if the index number that is one below the coin's current index number (ie: check the value of the index number to the 'left' of the coin's current index number) is actually a path (ie: ensure it is not a wall)
@@ -206,7 +207,7 @@ class Maze extends Component {
             })
     }
 
-    // function to move coint to the right
+    // Function to move coin to the right
     moveRight = () => {
         //  if user hits right arrow key:
         // (a) check to see if the index number that is one above the coin's current index number (ie: check the value of the index number to the 'right' of the coin's current index number) is actually a path
@@ -217,7 +218,7 @@ class Maze extends Component {
             })
     }
 
-    // function to move coint to up
+    // Function to move coin up
     moveUp = () => {
         //  if user hits up arrow key:
         // (a) check to see if the coin is able to continue moving up (ie: ensure the coin's current index number subtracted by 28 is equal to or greater than 0 - because if it's less than 0 and the user hits the up arrow, the coin will disappear off of the top edge of the maze as this means the coin is currently located along the top edge of the maze (index # 0 to 27))
@@ -229,7 +230,7 @@ class Maze extends Component {
             })
     }
 
-    // function to move coint to down
+    // Function to move coin down
     moveDown = () => {
         //  if user hits down arrow key:
         // (a) check to see if the coin is able to continue moving down (ie: ensure that 28 added to the coin's current index number is less than 28*28 (784) - because if it's more than 784 and the user hits the down arrow, the coin will disappear off of the bottom edge of the maze as this means the coin is currently located along the bottom edge of the maze (index # 756 to 784))
@@ -242,11 +243,12 @@ class Maze extends Component {
     }
 
 
+
     render() { 
         return (
             <>
             <section className="mazeInstructionsAndImage wrapper">
-                <p className="mazeInstructions">Click the top of the coin to insert it into the slot. Use the arrow keys to navigate through Zoltar's Maze!</p>
+                <p className="mazeInstructions">Click the top of the coin to insert it into the slot, then use the arrow keys to navigate through Zoltar's Maze!</p>
                 <figure  className="mazeCoinImageContainer">
                     <img className="coinImage" src="https://i.ibb.co/0Z6N088/goldCoin.png" alt="a coin with a skull on it" onClick={this.coinBoxAnimation}/>
                     <img className="coinSlotTop" src="https://i.ibb.co/t43gKMt/coin-Slot-Back.png" alt="coin slot tab" />

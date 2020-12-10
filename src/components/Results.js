@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Results extends Component {
 
+  // Function that generates a random number that will be used to pick a random advice object from the adviceSlip array
   randomizer = (array) => {
     // store a generated random integer which does not exceed the length of the array
     const randomNumber = Math.floor(Math.random() * array.length);
@@ -21,7 +22,7 @@ class Results extends Component {
           <img className="cornerImage bottomLeftCornerImage" src="https://i.ibb.co/wLTHwJh/bottom-Left-Corner.png" alt="a decorative corner drawing of an abstract bird" />
           <img className="cornerImage bottomRightCornerImage" src="https://i.ibb.co/BNKzc4S/bottom-Right-Corner.png" alt="a decorative corner drawing of an abstract bird" />
 
-            <h2>{this.props.userName}, your wish has been granted! </h2>
+            <h2>{this.props.userName}, your wish has been granted!</h2>
             <p>
               {
                 this.randomizer(this.props.adviceSlip)
