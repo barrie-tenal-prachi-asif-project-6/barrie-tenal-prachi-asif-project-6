@@ -6,7 +6,7 @@ import Results from './components/Results.js';
 import Instructions from './components/Instructions.js';
 import Footer from './components/Footer.js';
 import axios from 'axios';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter, BrowserRouter as Router, Route } from 'react-router-dom';
 import './styles/App.scss';
 
 
@@ -65,17 +65,17 @@ class App extends Component {
   render() {
 
     return (
-      <Router basename={process.env.PUBLIC_URL}>
+      <HashRouter>
         <>
           <Header />
           <main>
             <Route 
-              exact path={process.env.PUBLIC_URL + '/'} 
+              exact path="/" 
               component={Zoltar} 
             />
             <Route
               exact
-              path={process.env.PUBLIC_URL + '/'}
+              path="/"
               render={() => {
                 return (
                   <Instructions
@@ -88,11 +88,11 @@ class App extends Component {
               }}
             />
             <Route 
-              path={process.env.PUBLIC_URL + '/maze'}
+              path="/maze" 
               component={Maze} 
             />
             <Route
-              path={process.env.PUBLIC_URL + '/results'}
+              path="/results"
               render={() => {
                 return <Results 
                 adviceSlip={this.state.adviceSlip}
@@ -105,7 +105,7 @@ class App extends Component {
           </main>
           <Footer />
         </>
-      </Router>
+      </HashRouter>
     );
   }
 }
