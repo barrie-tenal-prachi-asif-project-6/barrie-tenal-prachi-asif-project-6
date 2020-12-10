@@ -248,51 +248,50 @@ class Maze extends Component {
     render() { 
         return (
             <>
-            <section className="mazeInstructionsAndImage wrapper">
-                <p className="mazeInstructions">Click the top of the coin to insert it into the slot, then use the arrow keys to navigate through Zoltar's Maze!</p>
-                <figure  className="mazeCoinImageContainer">
-                    <img className="coinImage" src="https://i.ibb.co/0Z6N088/goldCoin.png" alt="a coin with a skull on it" onClick={this.coinBoxAnimation}/>
-                    <img className="coinSlotTop" src="https://i.ibb.co/t43gKMt/coin-Slot-Back.png" alt="coin slot tab" />
-                    <img className="coinSlot" src="https://i.ibb.co/QD0CYkf/coin-Slot-Front.png" alt="insert a coin in this box" />
-                </figure>
+                <section className="mazeInstructionsAndImage wrapper">
+                    <p className="mazeInstructions">Click the top of the coin to insert it into the slot, then use the arrow keys to navigate through Zoltar's Maze!</p>
+                    <figure  className="mazeCoinImageContainer">
+                        <img className="coinImage" src="https://i.ibb.co/0Z6N088/goldCoin.png" alt="a coin with a skull on it" onClick={this.coinBoxAnimation}/>
+                        <img className="coinSlotTop" src="https://i.ibb.co/t43gKMt/coin-Slot-Back.png" alt="coin slot tab" />
+                        <img className="coinSlot" src="https://i.ibb.co/QD0CYkf/coin-Slot-Front.png" alt="insert a coin in this box" />
+                    </figure>
 
-                
-                <div className="maze">
-                    {/* conditionally render the results button only when the user as navigated the coin to the end of the maze */}
-                    {
-                        (this.state.hasCoinCompletedMaze)
-                        ?
-                        <Link to="/results">
-                            <button className="resultsButton">Click For Results</button>
-                        </Link>
-                        : null
-                    }
-                    {/* conditionally render the arrow buttons only when the maze appears */}
-                    {
-                        (this.state.areArrowButtonsVisible)
-                        ?
-                        <div className="arrowButtonsContainer">
-                            <div className="arrowButtonsGrid">
-                                <div className="buttonGridDivs"></div>
-                                <button className="arrowButton upArrowButton" onClick={() => {this.handleArrowClick("up")}}>
-                                    <ArrowUpwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
-                                </button>
-                                <div className="buttonGridDivs"></div>
-                                <button className="arrowButton leftArrowButton" onClick={() => {this.handleArrowClick("left")}}>
-                                    <ArrowBackIcon style={{ fontSize: 40 }} className="arrowIcons" />
-                                </button>
-                                <button className="arrowButton downArrowButton" onClick={() => {this.handleArrowClick("down")}}>
-                                    <ArrowDownwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
-                                </button>
-                                <button className="arrowButton rightArrowButton" onClick={() => {this.handleArrowClick("right")}}>
-                                    <ArrowForwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
-                                </button>
+                    <div className="maze">
+                        {/* conditionally render the results button only when the user as navigated the coin to the end of the maze */}
+                        {
+                            (this.state.hasCoinCompletedMaze)
+                            ?
+                            <Link to="/results">
+                                <button className="resultsButton">Click For Results</button>
+                            </Link>
+                            : null
+                        }
+                        {/* conditionally render the arrow buttons only when the maze appears */}
+                        {
+                            (this.state.areArrowButtonsVisible)
+                            ?
+                            <div className="arrowButtonsContainer">
+                                <div className="arrowButtonsGrid">
+                                    <div className="buttonGridDivs"></div>
+                                    <button className="arrowButton upArrowButton" onClick={() => {this.handleArrowClick("up")}}>
+                                        <ArrowUpwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
+                                    </button>
+                                    <div className="buttonGridDivs"></div>
+                                    <button className="arrowButton leftArrowButton" onClick={() => {this.handleArrowClick("left")}}>
+                                        <ArrowBackIcon style={{ fontSize: 40 }} className="arrowIcons" />
+                                    </button>
+                                    <button className="arrowButton downArrowButton" onClick={() => {this.handleArrowClick("down")}}>
+                                        <ArrowDownwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
+                                    </button>
+                                    <button className="arrowButton rightArrowButton" onClick={() => {this.handleArrowClick("right")}}>
+                                        <ArrowForwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        : null
-                    }
-                </div>
-            </section>
+                            : null
+                        }
+                    </div>
+                </section>
             </>
         );
     }

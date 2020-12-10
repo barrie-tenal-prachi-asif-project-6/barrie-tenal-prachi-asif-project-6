@@ -1,27 +1,66 @@
-// maze styling
-.maze {
-    margin: 0 auto;
-    cursor: pointer;
+// coin slot & maze styling
+.mazeInstructionsAndImage {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 70vw;
-    min-width: 300px;
-    max-width: 600px;
-    height: 70vw;
-    min-height: 300px;
-    max-height: 600px;
-    box-shadow: 0 0 10px $fontPrimary;
-    background-color: $fontSecondary;
-    position: absolute;
-    top: 25px;
-    opacity: 0;
-        div {
-            width: calc(100% / 30);
-            height: calc(100% / 30);
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+        p {
+            margin-top: 10px;
+        }
+        .mazeCoinImageContainer {
+            height: 300px;
+            width: 40%;
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+                .coinImage {
+                    width: 50%;
+                    position: absolute;
+                    top: 30%;
+                    z-index: 10;
+                    cursor: pointer;
+                }
+                .coinSlotTop, 
+                .coinSlot {
+                    position: absolute;
+                    top: 60%;
+                }
+                .coinSlotTop {
+                    z-index: -10;
+                }
+                .coinSlot {
+                    z-index: 20;
+                }
+        }
+        .maze {
+            margin: 0 auto;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 70vw;
+            min-width: 300px;
+            max-width: 600px;
+            height: 70vw;
+            min-height: 300px;
+            max-height: 600px;
+            box-shadow: 0 0 10px $fontPrimary;
+            background-color: $fontSecondary;
+            position: absolute;
+            top: 25px;
+            opacity: 0;
+                div {
+                    width: calc(100% / 30);
+                    height: calc(100% / 30);
+                }
         }
 }
 
+
+// styles dynamically added with JS
 .path {
     background-color: $fontSecondary;
 }
@@ -61,55 +100,14 @@
 	}
 }
 
-
-// coin slot styling
-.mazeInstructionsAndImage {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-        p {
-            margin-top: 10px;
-        }
-        .mazeCoinImageContainer {
-            height: 300px;
-            width: 40%;
-            min-width: 250px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-                .coinImage {
-                    width: 50%;
-                    position: absolute;
-                    top: 0;
-                    z-index: 10;
-                    cursor: pointer;
-                }
-                .coinSlotTop, 
-                .coinSlot {
-                    position: absolute;
-                    top: 30%;
-                }
-                .coinSlotTop {
-                    z-index: -10;
-                }
-                .coinSlot {
-                    z-index: 20;
-                }
-        }
-}
-
-
 // animations dynamically added with JS
 .coinDropAnimation {
     animation: coinDrop 2s ease-in forwards;
 }
 
 @keyframes coinDrop {
-    0% {top: 0}
-    100% {top: 45%}
+    0% {top: 30%}
+    100% {top: 75%}
 }
 
 .coinFadeAnimation {
