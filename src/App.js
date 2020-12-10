@@ -63,25 +63,19 @@ class App extends Component {
   }
 
   render() {
-    // function confirmExit()
-    // {
-    //   alert("exiting");
-    //   window.location.href='index.html';
-    //   return true;
-    // }
-    // window.onbeforeunload = confirmExit;
+
     return (
       <Router basename={process.env.PUBLIC_URL}>
         <>
           <Header />
           <main>
             <Route 
-              exact path="/" 
+              exact path={process.env.PUBLIC_URL + '/'} 
               component={Zoltar} 
             />
             <Route
               exact
-              path="/"
+              path={process.env.PUBLIC_URL + '/'}
               render={() => {
                 return (
                   <Instructions
@@ -94,11 +88,11 @@ class App extends Component {
               }}
             />
             <Route 
-              path="/maze" 
+              path={process.env.PUBLIC_URL + '/maze'}
               component={Maze} 
             />
             <Route
-              path="/results"
+              path={process.env.PUBLIC_URL + '/results'}
               render={() => {
                 return <Results 
                 adviceSlip={this.state.adviceSlip}
