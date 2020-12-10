@@ -63,13 +63,13 @@ class App extends Component {
   }
 
   render() {
-    function confirmExit()
-    {
-      alert("exiting");
-      window.location.href='index.html';
-      return true;
-    }
-    window.onbeforeunload = confirmExit;
+    // function confirmExit()
+    // {
+    //   alert("exiting");
+    //   window.location.href='index.html';
+    //   return true;
+    // }
+    // window.onbeforeunload = confirmExit;
     return (
       <Router basename={process.env.PUBLIC_URL}>
         <>
