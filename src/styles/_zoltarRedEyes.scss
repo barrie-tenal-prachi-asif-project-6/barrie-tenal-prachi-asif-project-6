@@ -22,8 +22,8 @@
 
 @keyframes redEyes {
     0% {opacity: 0;}
-    25% {opacity: 50%;}
-    50% {opacity: 100%;}
-    75% {opacity: 50%;}
-    100% {opacity:0%;}
+    25% {opacity: 0.5;}
+    50% {opacity: 1;}
+    75% {opacity: 0.5;}
+    100% {opacity: 0;}
 }
