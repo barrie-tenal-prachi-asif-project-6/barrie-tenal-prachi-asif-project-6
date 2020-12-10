@@ -97,12 +97,25 @@ class Maze extends Component {
         this.moveCoin();
     }
 
+
+
+
+    // Function that initiates coin animation when user clicks the coin
     coinBoxAnimation = () => {
         const coin = document.querySelector('.coinImage');
         const coinContainer = document.querySelector('.mazeCoinImageContainer');
+        const maze = document.querySelector('.maze');
+        const mazeInstructions = document.querySelector('.mazeInstructions');
+        
+        mazeInstructions.classList.add('coinFadeAnimation');
+
+        // adding the animation classes to the coin (coin falls into the slot & then fades out)
         coin.classList.add('coinDropAnimation');
         coinContainer.classList.add('coinFadeAnimation');
-        // this.createMazeAndCoin();
+
+        // adding animation class to the maze (maze fades in)
+        maze.classList.add('mazeFadeAnimation');
+        this.createMazeAndCoin();
     }
 
 
@@ -233,42 +246,43 @@ class Maze extends Component {
         return (
             <>
             <section className="mazeInstructionsAndImage wrapper">
-                <h2>Insert your coin to begin Zoltar's Maze of Wonder!</h2>
+                <p className="mazeInstructions">Click the top of the coin to insert it into the slot. Use the arrow keys to navigate through Zoltar's Maze!</p>
                 <figure  className="mazeCoinImageContainer">
                     <img className="coinImage" src="https://i.ibb.co/0Z6N088/goldCoin.png" alt="a coin with a skull on it" onClick={this.coinBoxAnimation}/>
                     <img className="coinSlotTop" src="https://i.ibb.co/t43gKMt/coin-Slot-Back.png" alt="coin slot tab" />
                     <img className="coinSlot" src="https://i.ibb.co/QD0CYkf/coin-Slot-Front.png" alt="insert a coin in this box" />
                 </figure>
-                    {/* <figure className="coinBoxImageContainer">
-                    </figure> */}
+
+                
                 <div className="maze">
                     {
                         (this.state.hasCoinCompletedMaze)
                         ?
                         <Link to="/results">
-                            <button>CLICK FOR RESULTS</button>
+                            <button className="resultsButton">Click For Results</button>
                         </Link>
                         : null
                     }
                 </div>
-            </section>
-
-                <div className="arrowButtonsGrid">
-                    <div className="buttonGridDivs"></div>
-                    <button className="arrowButton upArrowButton" onClick={() => {this.handleArrowClick("up")}}>
-                        <ArrowUpwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
-                    </button>
-                    <div className="buttonGridDivs"></div>
-                    <button className="arrowButton leftArrowButton" onClick={() => {this.handleArrowClick("left")}}>
-                        <ArrowBackIcon style={{ fontSize: 40 }} className="arrowIcons" />
-                    </button>
-                    <button className="arrowButton downArrowButton" onClick={() => {this.handleArrowClick("down")}}>
-                        <ArrowDownwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
-                    </button>
-                    <button className="arrowButton rightArrowButton" onClick={() => {this.handleArrowClick("right")}}>
-                        <ArrowForwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
-                    </button>
+                <div className="arrowButtonsContainer">
+                    <div className="arrowButtonsGrid">
+                        <div className="buttonGridDivs"></div>
+                        <button className="arrowButton upArrowButton" onClick={() => {this.handleArrowClick("up")}}>
+                            <ArrowUpwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
+                        </button>
+                        <div className="buttonGridDivs"></div>
+                        <button className="arrowButton leftArrowButton" onClick={() => {this.handleArrowClick("left")}}>
+                            <ArrowBackIcon style={{ fontSize: 40 }} className="arrowIcons" />
+                        </button>
+                        <button className="arrowButton downArrowButton" onClick={() => {this.handleArrowClick("down")}}>
+                            <ArrowDownwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
+                        </button>
+                        <button className="arrowButton rightArrowButton" onClick={() => {this.handleArrowClick("right")}}>
+                            <ArrowForwardIcon style={{ fontSize: 40 }} className="arrowIcons" />
+                        </button>
+                    </div>
                 </div>
+            </section>
             </>
         );
     }
