@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/barrie-tenal-prachi-asif-project-6/static/css/main.b5d0cdf2.chunk.css",
-    "main.js": "/barrie-tenal-prachi-asif-project-6/static/js/main.7ffeb0da.chunk.js",
-    "main.js.map": "/barrie-tenal-prachi-asif-project-6/static/js/main.7ffeb0da.chunk.js.map",
+    "main.js": "/barrie-tenal-prachi-asif-project-6/static/js/main.9b7ccc38.chunk.js",
+    "main.js.map": "/barrie-tenal-prachi-asif-project-6/static/js/main.9b7ccc38.chunk.js.map",
     "runtime-main.js": "/barrie-tenal-prachi-asif-project-6/static/js/runtime-main.eb8ea9ee.js",
     "runtime-main.js.map": "/barrie-tenal-prachi-asif-project-6/static/js/runtime-main.eb8ea9ee.js.map",
     "static/js/2.d42e77b6.chunk.js": "/barrie-tenal-prachi-asif-project-6/static/js/2.d42e77b6.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.eb8ea9ee.js",
     "static/js/2.d42e77b6.chunk.js",
     "static/css/main.b5d0cdf2.chunk.css",
-    "static/js/main.7ffeb0da.chunk.js"
+    "static/js/main.9b7ccc38.chunk.js"
   ]
 }
