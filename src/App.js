@@ -63,8 +63,12 @@ class App extends Component {
   }
 
   render() {
+    window.onbeforeunload = (e) => {
+      e.preventDefault();
+      window.location.href("https://barrie-tenal-prachi-asif-project-6.github.io/barrie-tenal-prachi-asif-project-6");
+    };
     return (
-      <Router basename={process.env.PUBLIC_URL + '/'}>
+      <Router basename={process.env.PUBLIC_URL}>
         <>
           <Header />
           <main>
