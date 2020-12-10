@@ -6,7 +6,7 @@ import Results from './components/Results.js';
 import Instructions from './components/Instructions.js';
 import Footer from './components/Footer.js';
 import axios from 'axios';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter, BrowserRouter as Router, Route } from 'react-router-dom';
 import './styles/App.scss';
 
 
@@ -63,15 +63,9 @@ class App extends Component {
   }
 
   render() {
-    function confirmExit()
-    {
-      alert("exiting");
-      window.location.href='index.html';
-      return true;
-    }
-    window.onbeforeunload = confirmExit;
+
     return (
-      <Router basename={process.env.PUBLIC_URL}>
+      <HashRouter>
         <>
           <Header />
           <main>
@@ -111,7 +105,7 @@ class App extends Component {
           </main>
           <Footer />
         </>
-      </Router>
+      </HashRouter>
     );
   }
 }
