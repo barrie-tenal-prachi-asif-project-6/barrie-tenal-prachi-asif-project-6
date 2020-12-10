@@ -81,7 +81,7 @@ class Instructions extends Component {
                         <label htmlFor="you"><h2>Self</h2></label>
 
                         <input type="radio" name="userCategory" id="things" required/>
-                        <label  htmlFor="things"><h2>Things</h2></label>
+                        <label  htmlFor="things"><h2>General</h2></label>
 
                         <input type="radio" name="userCategory" id="good" required/>
                         <label htmlFor="good"><h2>Feel Good</h2></label>
