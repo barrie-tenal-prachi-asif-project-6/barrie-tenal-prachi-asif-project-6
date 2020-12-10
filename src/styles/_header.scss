@@ -3,7 +3,6 @@ header {
     min-height: 8vh;
     background-color: $fontPrimary;
     color: $fontSecondary;
-    font-size: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,17 +12,18 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    h1 {
-        overflow: hidden; 
-        white-space: nowrap; 
-        margin: 0 auto; 
-        letter-spacing: .15em; 
-        text-transform: uppercase;
-        animation: typing 1.5s steps(40, end),
-    }
+        h1 {
+            overflow: hidden; 
+            font-size: 3rem;
+            white-space: nowrap; 
+            margin: 0 auto; 
+            letter-spacing: .15em; 
+            text-transform: uppercase;
+            animation: typing 1.5s steps(40, end),
+        }
 }
 
-/* The typing effect */
+/* typing effect animation */
 @keyframes typing {
     from { width: 0 }
     to { width: 100% }
