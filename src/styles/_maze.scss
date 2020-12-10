@@ -69,36 +69,36 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
-    p {
-        margin-top: 10px;
-    }
-    .mazeCoinImageContainer {
-        height: 300px;
-        width: 40%;
-        min-width: 250px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        .coinImage {
-            width: 50%;
-            position: absolute;
-            top: 0;
-            z-index: 10;
-            cursor: pointer;
+        p {
+            margin-top: 10px;
         }
-        .coinSlotTop, 
-        .coinSlot {
-            position: absolute;
-            top: 30%;
+        .mazeCoinImageContainer {
+            height: 300px;
+            width: 40%;
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+                .coinImage {
+                    width: 50%;
+                    position: absolute;
+                    top: 0;
+                    z-index: 10;
+                    cursor: pointer;
+                }
+                .coinSlotTop, 
+                .coinSlot {
+                    position: absolute;
+                    top: 30%;
+                }
+                .coinSlotTop {
+                    z-index: -10;
+                }
+                .coinSlot {
+                    z-index: 20;
+                }
         }
-        .coinSlotTop {
-            z-index: -10;
-        }
-        .coinSlot {
-            z-index: 20;
-        }
-    }
 }
 
 
@@ -113,18 +113,17 @@
 }
 
 .coinFadeAnimation {
-    animation: fadeOut 1s ease-in 4s forwards;
+    animation: fadeOut 1s ease-in 2.5s forwards;
 }
 
 .mazeFadeAnimation {
-    animation: mazeFade 1s ease-in 4s forwards;
+    animation: mazeFade 1s ease-in 3s forwards;
 }
 
 @keyframes mazeFade {
     0% {opacity: 0}
     100% {opacity: 1}
 }
-
 
 
 // results button styling
@@ -141,11 +140,13 @@
     padding: 15px 30px;
     margin-top: 20px;
     transition: 0.3s all;
+    width: 90%;
     z-index: 100;
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
+    cursor: pointer;
         &:hover,
         &:active,
         &:focus {
@@ -156,84 +157,81 @@
 
 
 // arrow buttons styling
+.arrowButtonsContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .arrowButtonsGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5px;
     width: 200px;
     min-height: 123px;
-    .arrowButton {
-        color: $fontSecondary;
-        font-weight: bold;
-        font-size: 2rem;
-        border: 2px solid $tertiaryColour;
-        border-radius: 10px;
-        padding: 5px;
-        transition: all 0.3s ease-in;
-        text-transform: uppercase;
-        text-decoration: none;
-    }
-    .upArrowButton {
-        background: linear-gradient(
-            to top,
-            $tertiaryColour 50%,
-            $fontPrimary 50%
-        );
-        background-size: 100% 200%;
-        background-position: right top;
-        &:focus,
-        &:active {
-            background-position: left bottom;
+    margin-top: 30px;
+    position: absolute;
+    left: 0;
+        .arrowButton {
+            color: $fontSecondary;
+            font-weight: bold;
+            font-size: 2rem;
+            border: 2px solid $tertiaryColour;
+            border-radius: 10px;
+            padding: 5px;
+            transition: all 0.3s ease-in;
+            text-transform: uppercase;
+            text-decoration: none;
         }
-    }
-    .leftArrowButton {
-        background: linear-gradient(
-            to left,
-            $tertiaryColour 50%,
-            $fontPrimary 50%
-        );
-        background-size: 200% 100%;
-        background-position: left top;
-        &:focus,
-        &:active  {
-            background-position: right bottom;
+        .upArrowButton {
+            background: linear-gradient(
+                to top,
+                $tertiaryColour 50%,
+                $fontPrimary 50%
+            );
+            background-size: 100% 200%;
+            background-position: right top;
+                &:focus,
+                &:active {
+                    background-position: left bottom;
+                }
         }
-    }
-    .downArrowButton {
-        background: linear-gradient(
-            to bottom,
-            $tertiaryColour 50%,
-            $fontPrimary 50%
-        );
-        background-size: 100% 200%;
-        background-position: right bottom;
-        &:focus,
-        &:active {
+        .leftArrowButton {
+            background: linear-gradient(
+                to left,
+                $tertiaryColour 50%,
+                $fontPrimary 50%
+            );
+            background-size: 200% 100%;
             background-position: left top;
+                &:focus,
+                &:active  {
+                    background-position: right bottom;
+                }
         }
-    }
-    .rightArrowButton {
-        background: linear-gradient(
-            to right,
-            $tertiaryColour 50%,
-            $fontPrimary 50%
-        );
-        background-size: 200% 100%;
-        background-position: right top;
-        &:focus,
-        &:active {
-            background-position: left bottom;
+        .downArrowButton {
+            background: linear-gradient(
+                to bottom,
+                $tertiaryColour 50%,
+                $fontPrimary 50%
+            );
+            background-size: 100% 200%;
+            background-position: right bottom;
+                &:focus,
+                &:active {
+                    background-position: left top;
+                }
         }
-    }
-}
-
-.arrowButtonsContainer {
-    display: flex;
-    justify-content: center;
-}
-
-@media only screen and (min-width: 1024px) {
-    .arrowButtonsGrid {
-        display: none;
-    }
+        .rightArrowButton {
+            background: linear-gradient(
+                to right,
+                $tertiaryColour 50%,
+                $fontPrimary 50%
+            );
+            background-size: 200% 100%;
+            background-position: right top;
+                &:focus,
+                &:active {
+                    background-position: left bottom;
+                }
+        }
 }
