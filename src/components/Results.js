@@ -45,7 +45,7 @@ class Results extends Component {
             (this.props.adviceSlip.length === 0)
               ? 
               <div>
-                <h2>Your wish has been granted!</h2>
+                <h2>Your wish has been granted!!!</h2>
                 <p> A person of words and not deeds is like a garden full of weeds. </p>
               </div>
               : 
