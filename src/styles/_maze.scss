@@ -1,19 +1,21 @@
+// maze styling
 .maze {
     margin: 0 auto;
     cursor: pointer;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     width: 70vw;
     min-width: 300px;
-    max-width: 550px;
+    max-width: 600px;
     height: 70vw;
     min-height: 300px;
-    max-height: 550px;
+    max-height: 600px;
     box-shadow: 0 0 10px $fontPrimary;
     background-color: $fontSecondary;
     position: absolute;
-    top: 50px;
-    visibility: hidden;
+    top: 25px;
+    opacity: 0;
         div {
             width: calc(100% / 30);
             height: calc(100% / 30);
@@ -59,13 +61,17 @@
 	}
 }
 
+
+// coin slot styling
 .mazeInstructionsAndImage {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    border: solid 1px blue;
     position: relative;
+    p {
+        margin-top: 10px;
+    }
     .mazeCoinImageContainer {
         height: 300px;
         width: 40%;
@@ -95,6 +101,8 @@
     }
 }
 
+
+// animations dynamically added with JS
 .coinDropAnimation {
     animation: coinDrop 2s ease-in forwards;
 }
@@ -108,11 +116,52 @@
     animation: fadeOut 1s ease-in 4s forwards;
 }
 
+.mazeFadeAnimation {
+    animation: mazeFade 1s ease-in 4s forwards;
+}
+
+@keyframes mazeFade {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+
+
+// results button styling
+.resultsButton {
+    font-size: 2.3rem;
+    font-family: $headingFont;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: $fontSecondary;
+    background-color: $fontPrimary;
+    border: 3px solid $fontPrimary;
+    box-shadow: 0 0 5px $fontPrimary;
+    padding: 15px 30px;
+    margin-top: 20px;
+    transition: 0.3s all;
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $tertiaryColour;
+            color: $fontPrimary;
+        }
+}
+
+
+// arrow buttons styling
 .arrowButtonsGrid {
-    padding: 40px 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5px;
+    width: 200px;
+    min-height: 123px;
     .arrowButton {
         color: $fontSecondary;
         font-weight: bold;
@@ -132,8 +181,8 @@
         );
         background-size: 100% 200%;
         background-position: right top;
-        &:hover, &:focus {
-            cursor: pointer;
+        &:focus,
+        &:active {
             background-position: left bottom;
         }
     }
@@ -145,8 +194,8 @@
         );
         background-size: 200% 100%;
         background-position: left top;
-        &:hover, &:focus {
-            cursor: pointer;
+        &:focus,
+        &:active  {
             background-position: right bottom;
         }
     }
@@ -158,8 +207,8 @@
         );
         background-size: 100% 200%;
         background-position: right bottom;
-        &:hover, &:focus {
-            cursor: pointer;
+        &:focus,
+        &:active {
             background-position: left top;
         }
     }
@@ -171,9 +220,20 @@
         );
         background-size: 200% 100%;
         background-position: right top;
-        &:hover, &:focus {
-            cursor: pointer;
+        &:focus,
+        &:active {
             background-position: left bottom;
         }
+    }
+}
+
+.arrowButtonsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (min-width: 1024px) {
+    .arrowButtonsGrid {
+        display: none;
     }
 }
