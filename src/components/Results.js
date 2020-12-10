@@ -3,25 +3,6 @@ import ZoltarRedEyes from './ZoltarRedEyes.js';
 import { Link } from 'react-router-dom';
 
 class Results extends Component {
-  // constructor() {
-  //   super()
-  //   this.state = {
-  //     cachedAdvice: []
-  //   }
-  // }
-
-
-  // componentDidMount() {
-  //   // this.props.getRandomAdvice();
-  //   // console.log('you got random advice', this.props.getRandomAdvice[0].advice)
-  //   // const randomAdviceBackup = this.props.getRandomAdvice();
-  //   this.setState({
-  //     cachedAdvice: this.props.adviceSlip
-  //   })
-  // }
-
-
-
   // Function that generates a random number that will be used to pick a random advice object from the adviceSlip array
   randomizer = (array) => {
     // store a generated random integer which does not exceed the length of the array
